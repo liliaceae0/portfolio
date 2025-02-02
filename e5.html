@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            overflow-y: auto;
+            background-color: black;
+        }
+
+        .e5-container {
+            color: white;
+            padding: 2rem;
+            margin-top: 2rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .presentation {
+            text-align: center;
+            margin: 2rem auto;
+            max-width: 800px;
+            padding: 2rem;
+            background: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            border: 1px solid rgba(255, 32, 121, 0.3);
+        }
+
+        .documents-section {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin: 4rem 0;
+            flex-wrap: wrap;
+        }
+
+        .download-btn {
+            padding: 1rem 2rem;
+            background-color: #ff2079;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .download-btn:hover {
+            background-color: transparent;
+            border: 2px solid #ff2079;
+            box-shadow: 0 0 20px #ff2079;
+        }
+
+        .cards-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            padding: 2rem;
+            margin-top: 4rem;
+        }
+
+        .card {
+            background: rgba(0, 0, 0, 0.7);
+            border-radius: 15px;
+            padding: 2rem;
+            border: 1px solid rgba(255, 32, 121, 0.3);
+            transition: all 0.3s ease;
+            backdrop-filter: blur(5px);
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 0 30px rgba(255, 32, 121, 0.5);
+        }
+
+        .card h3 {
+            color: #ff2079;
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+
+        .card p {
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+
+        .card-btn {
+            padding: 0.8rem 1.5rem;
+            background-color: #c832ff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .card-btn:hover {
+            background-color: transparent;
+            border: 2px solid #c832ff;
+            box-shadow: 0 0 20px #c832ff;
+        }
+
+        @media (max-width: 768px) {
+            .documents-section {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .cards-gallery {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+    <title>Épreuve E5 - Portfolio</title>
+</head>
+<body>
+    <video autoplay muted loop id="myVideo">
+        <source src="blue.mp4" type="video/mp4">
+    </video>
+
+    <nav>
+        <div class="nav-container">
+            <div class="logo" data-aos="zoom-in" data-aos-duration="1500">
+                Esra <span>Atia</span>
+            </div>
+            <div class="links">
+                <div class="link" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="100"><a href="index.html">Accueil</a></div>
+                <div class="link" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="100"><a href="btssio.html">BTS SIO</a></div>
+                <div class="link" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="100"><a href="e5.html">Épreuve 5</a></div>
+                <div class="link" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="100"><a href="e6.html">Épreuve 6</a></div>
+                <div class="link" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="200"> <a href="profil.html">Profil</a></div>
+                <div class="link" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="300"><a href="projet.html">Projets</a></div>
+                <div class="link" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="400"><a href="veille.html">Veille</a></div>
+        </div>
+        <i class="fa-solid fa-bars hamburg" onclick="hamburg()"></i>
+    </div>
+        <div class="dropdown">
+            <div class="links">
+                <a href="index.html">Accueil</a>
+                <a href="btssio.html">BTS SIO</a>
+                <a href="e5.html">Épreuve 5 </a>
+                <a href="e6.html">Épreuve 6 </a>
+                <a href="profil=.html">Profil</a>
+                <a href="projet.html">Projets</a>
+                <a href="veille.html">Veille</a>
+                <i class="fa-solid fa-xmark cancel" onclick="cancel()"></i>
+            </div>
+        </div>
+    </nav>
+
+    <div class="e5-container">
+        <div class="presentation" data-aos="fade-up" data-aos-duration="1500">
+            <h1>Épreuve E5 - Production et fourniture de services informatiques</h1>
+            <p>L'épreuve E5 évalue les compétences acquises dans le cadre des activités de production et de fourniture de services informatiques. Elle permet de démontrer la maîtrise des processus, des démarches et des outils nécessaires à la gestion et à la production de services.</p>
+        </div>
+
+        <div class="documents-section">
+            <a href="tab.pdf" class="download-btn" data-aos="fade-right" data-aos-duration="1500">
+                <i class="fas fa-download"></i> Tableau des compétences
+            </a>
+            <a href="BTSSIO.png" class="download-btn" data-aos="fade-left" data-aos-duration="1500">
+                <i class="fas fa-download"></i> Modalités d'épreuve
+            </a>
+        </div>
+
+        <div class="cards-gallery">
+            <div class="card" data-aos="flip-left" data-aos-duration="1500">
+                <h3>Administration de serveurs ESXi et gestion d’infrastructure virtuelle</h3>
+                <p>
+                    Mise en place d’un environnement virtualisé avec VMware ESXi, comprenant la configuration de trois banques de données (plateforme1, plateforme2, plateforme3) pour organiser les machines virtuelles (VM) et leurs ressources.
+                    Création de groupes de ports réseaux (vSwitch) : glan_server, glan_equipe, glan_wifi, et glandmz, permettant une segmentation réseau adaptée aux besoins fonctionnels des VMs.
+                    Gestion des droits utilisateurs : création de trois comptes utilisateurs avec accès restreint à leurs plateformes respectives via des permissions spécifiques.
+                    Déploiement d’un environnement multi-VM, assurant l’isolation et la gestion des rôles via une infrastructure définie et cloisonnée.</p>
+                <a href="tp-4-virtualisation-esxi-1.pdf" class="card-btn">
+                    <i class="fas fa-download"></i> Télécharger
+                </a>
+            </div>
+
+            <div class="card" data-aos="flip-left" data-aos-duration="1500" data-aos-delay="200">
+                <h3>Création et administration Active Directory avec Windows Server 2022</h3>
+                <p>Déploiement d’une infrastructure Active Directory (AD) dans un domaine principal sitka.local, avec configuration de Hermès, le premier contrôleur de domaine (DC), assigné aux rôles FSMO essentiels : PDC, RID, Infrastructure et Schéma.
+                    Configuration d’un second contrôleur de domaine nommé Neptune, responsable des permissions d’approbation inter-domaines, et création d’un sous-domaine enfant nommé IT sous Neptune pour une hiérarchie AD avancée.
+                    Intégration et gestion des comptes utilisateurs, postes clients, et serveurs au sein de l’AD.
+                    Mise en place de stratégies de groupe (GPO) pour sécuriser et standardiser les configurations au sein des différents LAN.</p>
+                <a href="Procédure AD.docx" class="card-btn">
+                    <i class="fas fa-download"></i> Télécharger
+                </a>
+            </div>
+
+            <div class="card" data-aos="flip-left" data-aos-duration="1500" data-aos-delay="400">
+                <h3>Implémentation et gestion de services réseau</h3>
+                <p>Serveur DHCP : Configuration d’un serveur DHCP avec deux étendues distinctes :</br></br>
+
+                    LAN_Server : attribue dynamiquement des IP aux équipements du réseau serveur.</br>
+                    LAN_Equipe : gère les adresses des postes de travail de l’équipe.</br>
+                    Routage réseau avec pfSense :</br></br>
+                    
+                    Mise en place d’un routeur pfSense pour assurer le routage et l’interconnexion des sous-réseaux LAN_Equipe, LAN_Server, LAN_Wifi, et LAN_DMZ.
+                    Configuration de règles de pare-feu pour sécuriser les échanges entre les différents LAN.
+                    Gestion des interfaces réseau : Configuration des cartes réseau des VMs pour une compatibilité optimale avec les groupes de ports définis sur ESXi.</p>
+                <a href="DHCP-failover.docx" class="card-btn">
+                    <i class="fas fa-download"></i> Télécharger
+                </a>
+            </div>
+
+            <div class="card" data-aos="flip-left" data-aos-duration="1500">
+                <h3> Sécurité informatique et récupération de comptes</h3>
+                <p>
+                    Utilisation de Kali Linux pour effectuer des audits de sécurité :</br></br>
+
+                Scan des ports ouverts avec Nmap pour identifier les vulnérabilités sur les équipements réseau. </br>
+                Exploitation de failles pour démontrer la récupération d’un compte administrateur sur un domaine via des outils de forensics et de post-exploitation.</br>
+                Génération et gestion des clés publiques et privées pour assurer une communication sécurisée entre machines physiques et virtuelles via SSH.</p>
+                <a href="Chiffrer les données.docx" class="card-btn">
+                    <i class="fas fa-download"></i> Télécharger
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+        AOS.init({offset: 0});
+    </script>
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profil - Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            background: #000000;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        .content-container {
+            padding: 20px;
+            margin-top: 10vh;
+        }
+
+        .container {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            padding: 50px 0;
+            gap: 40px;
+        }
+
+        .box {
+            position: relative;
+            height: 450px;
+            width: 300px;
+            background: #fff;
+            border-radius: 20px;
+            overflow: hidden;
+        }
+
+        .box::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            border-radius: 20px;
+            background: linear-gradient(45deg, #ff166f, #ffbdce);
+        }
+
+        .box::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            border-radius: 20px;
+            background: linear-gradient(45deg, #2c1177, #4c58ff);
+            filter: blur(16px);
+        }
+
+        .box .content {
+            padding: 30px;
+            position: absolute;
+            display: block;
+            inset: 4px;
+            border-radius: 16px;
+            background: rgba(0, 0, 0, 0.9);
+            z-index: 2;
+            color: white;
+            overflow-y: auto;
+        }
+
+        .box h2 {
+            color: #ff2079;
+            text-shadow: 0 0 10px #ff2079;
+            margin-bottom: 20px;
+            text-align: center;
+            font-size: 1.5em;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="nav-container">
+            <div class="logo" data-aos="zoom-in" data-aos-duration="1500">
+                Esra <span>Atia</span>
+            </div>
+            <div class="links">
+                <div class="link" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="100"><a href="index.html">Accueil</a></div>
+                <div class="link" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="100"><a href="btssio.html">BTS SIO</a></div>
+                <div class="link" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="100"><a href="e5.html">Épreuve 5</a></div>
+                <div class="link" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="100"><a href="e6.html">Épreuve 6</a></div>
+                <div class="link" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="200"> <a href="profil.html">Profil</a></div>
+                <div class="link" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="300"><a href="projet.html">Projets</a></div>
+                <div class="link" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="400"><a href="veille.html">Veille</a></div>
+        </div>
+        <i class="fa-solid fa-bars hamburg" onclick="hamburg()"></i>
+    </div>
+        <div class="dropdown">
+            <div class="links">
+                <a href="index.html">Accueil</a>
+                <a href="btssio.html">BTS SIO</a>
+                <a href="e5.html">Épreuve 5 </a>
+                <a href="e6.html">Épreuve 6 </a>
+                <a href="profil=.html">Profil</a>
+                <a href="projet.html">Projets</a>
+                <a href="veille.html">Veille</a>
+                <i class="fa-solid fa-xmark cancel" onclick="cancel()"></i>
+            </div>
+        </div>
+    </nav>
+
+    <div class="content-container">
+        <div class="container">
+            <div class="box" data-aos="fade-right" data-aos-duration="1500">
+                <div class="content">
+                    <h2>À mon propos</h2>
+                    <p>Enchantée, moi c'est Esra ! Je suis étudiante en 1ère année BTS SIO.   Mon attrait pour ce domaine se développe au collège lors de mon intégration du club d’informatique débouchant sur un stage en robotique, renforçant mon attrait pour la créativité et la logique propres à ce domaine d’avenir fascinant. Je me suis investie en tant que stagiaire dans l'apprentissage des compétences hardware dans une boutique d'informatique, cherchant à élargir mes connaissances et hard skills. </p>
+                </div>
+            </div>
+            
+            <div class="box" data-aos="fade-up" data-aos-duration="1500">
+                <div class="content">
+                    <h2>Mon projet professionnel</h2>
+                    <p> Passionnée par la technologie et les visages pluriels de l’Informatique, je suis animée par le désir de contribuer et créer des projets d’envergure autant sur le plan éducatif qu’économique. Pour ce faire, je compte me spécialiser en cybersécurité en choisissant tout d'abord la spécialité Solutions d'Infrastructure, Systèmes et Réseaux. Par la suite je vise à être ingénieure informatique. </p>
+                </div>
+            </div>
+            
+            <div class="box" data-aos="fade-left" data-aos-duration="1500">
+                <div class="content">
+                    <h2>Mon école</h2>
+                    <p>Grande Ecole d'ingénieurs depuis 1936, labellisée CTI, et leader indépendant et reconnu d'intérêt public par l'Etat (EESPIG), l'Efrei couvre tous les secteurs du numérique, de l'ingénierie au management. Depuis janvier 2022, l'Efrei a intégré Paris Panthéon-Assas Université en tant qu'établissement composante.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            offset: 0,
+            duration: 1000
+        });
+    </script>
+</body>
+</html>

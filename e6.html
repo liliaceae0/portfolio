@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            overflow-y: auto;
+            background-color: black;
+        }
+
+        .e6-container {
+            color: white;
+            padding: 2rem;
+            margin-top: 2rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .presentation {
+            text-align: center;
+            margin: 2rem auto;
+            max-width: 800px;
+            padding: 2rem;
+            background: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            border: 1px solid rgba(255, 32, 121, 0.3);
+        }
+
+        .presentation h1 {
+            color: #ff2079;
+            margin-bottom: 1.5rem;
+            font-size: 2.5rem;
+            text-shadow: 0 0 10px rgba(255, 32, 121, 0.5);
+        }
+
+        .presentation p {
+            line-height: 1.8;
+            font-size: 1.1rem;
+        }
+
+        .documents-section {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin: 4rem 0;
+            flex-wrap: wrap;
+        }
+
+        .download-btn {
+            padding: 1.2rem 2.5rem;
+            background-color: #ff2079;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 1.1rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .download-btn:hover {
+            background-color: transparent;
+            border: 2px solid #ff2079;
+            box-shadow: 0 0 20px #ff2079;
+            transform: translateY(-3px);
+        }
+
+        .download-btn i {
+            margin-right: 10px;
+            transition: transform 0.3s ease;
+        }
+
+        .download-btn:hover i {
+            transform: translateY(-2px);
+        }
+
+        .projects-section {
+            margin: 4rem auto;
+            max-width: 1200px;
+        }
+
+        .project {
+            background: rgba(0, 0, 0, 0.7);
+            border-radius: 15px;
+            padding: 3rem;
+            margin: 3rem 0;
+            border: 1px solid rgba(255, 32, 121, 0.3);
+            backdrop-filter: blur(5px);
+            transition: all 0.3s ease;
+        }
+
+        .project:hover {
+            transform: scale(1.02);
+            box-shadow: 0 0 30px rgba(255, 32, 121, 0.2);
+        }
+
+        .project h2 {
+            color: #c832ff;
+            margin-bottom: 1.5rem;
+            font-size: 2rem;
+            text-shadow: 0 0 10px rgba(200, 50, 255, 0.5);
+        }
+
+        .project p {
+            margin-bottom: 2rem;
+            line-height: 1.8;
+            font-size: 1.1rem;
+        }
+
+        .project-btn {
+            padding: 1rem 2rem;
+            background-color: #c832ff;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+            font-weight: 600;
+        }
+
+        .project-btn:hover {
+            background-color: transparent;
+            border: 2px solid #c832ff;
+            box-shadow: 0 0 20px #c832ff;
+            transform: translateY(-3px);
+        }
+
+        @media (max-width: 768px) {
+            .documents-section {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .project {
+                padding: 2rem;
+                margin: 2rem 0;
+            }
+
+            .presentation h1 {
+                font-size: 2rem;
+            }
+
+            .download-btn {
+                width: 90%;
+                text-align: center;
+            }
+        }
+    </style>
+    <title>Épreuve E6 - Portfolio</title>
+</head>
+<body>
+    <video autoplay muted loop id="myVideo">
+        <source src="blue.mp4" type="video/mp4">
+    </video>
+
+    <nav>
+        <div class="nav-container">
+            <div class="logo" data-aos="zoom-in" data-aos-duration="1500">
+                Esra <span>Atia</span>
+            </div>
+            <div class="links">
+                <div class="link" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="100"><a href="index.html">Accueil</a></div>
+                <div class="link" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="100"><a href="btssio.html">BTS SIO</a></div>
+                <div class="link" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="100"><a href="e5.html">Épreuve 5</a></div>
+                <div class="link" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="100"><a href="e6.html">Épreuve 6</a></div>
+                <div class="link" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="200"> <a href="profil.html">Profil</a></div>
+                <div class="link" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="300"><a href="projet.html">Projets</a></div>
+                <div class="link" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="400"><a href="veille.html">Veille</a></div>
+        </div>
+        <i class="fa-solid fa-bars hamburg" onclick="hamburg()"></i>
+    </div>
+        <div class="dropdown">
+            <div class="links">
+                <a href="index.html">Accueil</a>
+                <a href="btssio.html">BTS SIO</a>
+                <a href="e5.html">Épreuve 5 </a>
+                <a href="e6.html">Épreuve 6 </a>
+                <a href="profil=.html">Profil</a>
+                <a href="projet.html">Projets</a>
+                <a href="veille.html">Veille</a>
+                <i class="fa-solid fa-xmark cancel" onclick="cancel()"></i>
+            </div>
+        </div>
+    </nav>
+
+    <div class="e6-container">
+        <div class="presentation" data-aos="fade-up" data-aos-duration="1500">
+            <h1>Épreuve E6 - Cybersécurité des Services Informatiques</h1>
+            <p>L'épreuve E6 évalue les compétences acquises en matière de cybersécurité des services informatiques. Cette épreuve permet de démontrer la capacité à protéger et sécuriser les systèmes d'information tout en assurant la continuité de service.</p>
+        </div>
+
+        <div class="documents-section">
+            <a href="rla_fsp-ppe-c.pdf" class="download-btn" data-aos="fade-up" data-aos-duration="1500">
+                <i class="fas fa-file-alt"></i> Situation Professionnelle
+            </a>
+            <a href="docs/doc-technique.pdf" class="download-btn" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="200">
+                <i class="fas fa-book"></i> Documentation Technique
+            </a>
+            <a href="Environnement technologique dapprentissagesisr1.docx" class="download-btn" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="400">
+                <i class="fas fa-laptop-code"></i> Environnement Technologique
+            </a>
+        </div>
+
+        <div class="projects-section">
+            <div class="project" data-aos="fade-right" data-aos-duration="1500">
+                <h2>Projet 1 : Sécurisation d'Infrastructure</h2>
+                <p>Ce projet consiste en la mise en place d'une infrastructure sécurisée pour une entreprise de taille moyenne. Il comprend l'implémentation de solutions de pare-feu, la gestion des accès, et la mise en place de protocoles de sécurité avancés.</p>
+                <a href="docs/projet1.pdf" class="project-btn">
+                    <i class="fas fa-download"></i> Télécharger le projet
+                </a>
+            </div>
+
+            <div class="project" data-aos="fade-left" data-aos-duration="1500">
+                <h2>Projet 2 : Audit de Sécurité</h2>
+                <p>Ce second projet porte sur la réalisation d'un audit complet de sécurité d'un système d'information existant. Il inclut l'analyse des vulnérabilités, les tests de pénétration et les recommandations d'amélioration.</p>
+                <a href="docs/projet2.pdf" class="project-btn">
+                    <i class="fas fa-download"></i> Télécharger le projet
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+        AOS.init({offset: 0});
+    </script>
+    <script src="script.js"></script>
+</body>
+</html>

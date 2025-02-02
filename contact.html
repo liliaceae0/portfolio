@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .contact-container {
+            width: 100%;
+            height: 90vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            position: relative;
+            z-index: 1;
+        }
+
+        .title-container {
+            text-align: center;
+            margin-bottom: 40px;
+            position: relative;
+        }
+
+        .contact-title {
+            color: white;
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            text-shadow: 0 0 10px #ff2079;
+        }
+
+        .moving-underline {
+            width: 100px;
+            height: 3px;
+            background: linear-gradient(90deg, #ff2079, #c832ff);
+            border-radius: 3px;
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            animation: moveUnderline 2s infinite ease-in-out;
+        }
+
+        @keyframes moveUnderline {
+            0% { left: 0; }
+            50% { left: calc(100% - 100px); }
+            100% { left: 0; }
+        }
+
+        .contact-form {
+            width: 80%;
+            max-width: 600px;
+            padding: 40px;
+            background: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            box-shadow: 0 0 20px rgba(255, 32, 121, 0.3);
+            animation: formPulse 3s infinite ease-in-out;
+        }
+
+        @keyframes formPulse {
+            0% { box-shadow: 0 0 20px rgba(255, 32, 121, 0.3); }
+            50% { box-shadow: 0 0 30px rgba(200, 50, 255, 0.5); }
+            100% { box-shadow: 0 0 20px rgba(255, 32, 121, 0.3); }
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 2px solid transparent;
+            border-radius: 8px;
+            color: white;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .form-group input::placeholder,
+        .form-group textarea::placeholder {
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #ff2079;
+            box-shadow: 0 0 15px rgba(255, 32, 121, 0.3);
+        }
+
+        .form-group textarea {
+            min-height: 150px;
+            resize: vertical;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 12px;
+            border: none;
+            border-radius: 8px;
+            background: linear-gradient(45deg, #ff2079, #c832ff);
+            color: white;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .submit-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(
+                90deg,
+                transparent,
+                rgba(255, 255, 255, 0.2),
+                transparent
+            );
+            animation: shine 3s infinite;
+        }
+
+        @keyframes shine {
+            0% { left: -100%; }
+            20% { left: 100%; }
+            100% { left: 100%; }
+        }
+
+        .submit-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 20px rgba(255, 32, 121, 0.5);
+        }
+
+        @media (max-width: 768px) {
+            .contact-title {
+                font-size: 2rem;
+            }
+            
+            .contact-form {
+                width: 90%;
+                padding: 20px;
+            }
+        }
+    </style>
+    <title>Contact - Esra's Portfolio</title>
+</head>
+<body>
+    <video autoplay muted loop id="myVideo">
+        <source src="blue.mp4" type="video/mp4">
+    </video>
+
+    <nav>
+        <div class="nav-container">
+            <div class="logo" data-aos="zoom-in" data-aos-duration="1500">
+                Esra <span>Atia</span>
+            </div>
+            <div class="links">
+                <div class="link" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="100"><a href="index.html">Accueil</a></div>
+                <div class="link" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="100"><a href="btssio.html">BTS SIO</a></div>
+                <div class="link" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="100"><a href="e5.html">Épreuve 5</a></div>
+                <div class="link" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="100"><a href="e6.html">Épreuve 6</a></div>
+                <div class="link" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="200"> <a href="profil.html">Profil</a></div>
+                <div class="link" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="300"><a href="projet.html">Projets</a></div>
+                <div class="link" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="400"><a href="veille.html">Veille</a></div>
+        </div>
+        <i class="fa-solid fa-bars hamburg" onclick="hamburg()"></i>
+    </div>
+        <div class="dropdown">
+            <div class="links">
+                <a href="index.html">Accueil</a>
+                <a href="btssio.html">BTS SIO</a>
+                <a href="e5.html">Épreuve 5 </a>
+                <a href="e6.html">Épreuve 6 </a>
+                <a href="profil=.html">Profil</a>
+                <a href="projet.html">Projets</a>
+                <a href="veille.html">Veille</a>
+                <i class="fa-solid fa-xmark cancel" onclick="cancel()"></i>
+            </div>
+        </div>
+    </nav>
+
+    <div class="contact-container">
+        <div class="title-container" data-aos="fade-down" data-aos-duration="1500">
+            <h1 class="contact-title">Créons de belles choses ensemble !</h1>
+            <div class="moving-underline"></div>
+        </div>
+
+        <form class="contact-form" data-aos="zoom-in" data-aos-duration="1500" data-aos-delay="300">
+            <div class="form-group" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="400">
+                <input type="text" placeholder="Votre nom" required>
+            </div>
+            <div class="form-group" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="600">
+                <input type="email" placeholder="Votre email" required>
+            </div>
+            <div class="form-group" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="800">
+                <textarea placeholder="Votre message" required></textarea>
+            </div>
+            <button type="submit" class="submit-btn" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="1000">
+                Valider
+            </button>
+        </form>
+    </div>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+        AOS.init({offset:0});
+    </script>
+    <script src="script.js"></script>
+</body>
+</html>
+
+*/ https://www.youtube.com/watch?v=xFACtSpmj3E

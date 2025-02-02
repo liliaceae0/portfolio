@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <link rel="stylesheet" href="style.css">
+    <title>BTS SIO - Portfolio Esra</title>
+    <style>
+        .main-content {
+            color: white;
+            padding: 20px;
+            margin-top: 20px;
+            height: 90vh;
+            overflow-y: auto;
+        }
+
+        .section {
+    text-align: center;  /* Centre tout le texte */
+    display: flex;
+    flex-direction: column;
+    align-items: center;  /* Centre les éléments horizontalement */
+    justify-content: center;  /* Centre les éléments verticalement */
+    }   
+
+    .section h2 {
+    text-align: center;
+    width: 100%;
+    }
+
+    .section p {
+    text-align: center;
+    max-width: 800px;  /* Limite la largeur du texte pour une meilleure lisibilité */
+    margin: 0 auto;    /* Centre le paragraphe s'il est plus petit que la section */
+    }
+
+    .section img {
+    display: block;    /* Permet au margin: auto de fonctionner */
+    margin: 15px auto; /* Centre l'image */
+    max-width: 90%;    /* Empêche l'image d'être trop large */
+    }
+
+        .section {
+            background: rgba(0, 0, 0, 0.5);
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 10px;
+            backdrop-filter: blur(5px);
+        }
+
+        .section h2 {
+            color: #ff2079;
+            text-shadow: 0 0 10px #ff2079;
+            margin-bottom: 15px;
+        }
+
+        .section p {
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            margin: 15px 0;
+            border-radius: 5px;
+        }
+
+        .download-btn {
+    display: inline-block;
+    padding: 15px 30px;
+    background-color: #c832ff;
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    border: 2px solid #c832ff;
+    box-shadow: 0 0 15px #c832ff;
+    animation: bounce 2s infinite;
+    }
+
+    .download-btn:hover {
+    background-color: transparent;
+    color: #c832ff;
+    box-shadow: 0 0 30px #c832ff;
+    transform: scale(1.05);
+    }
+
+    @keyframes bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+        }
+    }
+
+    </style>
+</head>
+<body>
+    <!-- Vidéo de fond -->
+    <video autoplay muted loop id="myVideo">
+        <source src="blue.mp4" type="video/mp4">
+    </video>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <div class="logo" data-aos="zoom-in" data-aos-duration="1500">
+                Esra <span>Atia</span>
+            </div>
+            <div class="links">
+                <div class="link" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="100"><a href="index.html">Accueil</a></div>
+                <div class="link" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="100"><a href="btssio.html">BTS SIO</a></div>
+                <div class="link" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="100"><a href="e5.html">Épreuve 5</a></div>
+                <div class="link" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="100"><a href="e6.html">Épreuve 6</a></div>
+                <div class="link" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="200"> <a href="profil.html">Profil</a></div>
+                <div class="link" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="300"><a href="projet.html">Projets</a></div>
+                <div class="link" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="400"><a href="veille.html">Veille</a></div>
+        </div>
+        <i class="fa-solid fa-bars hamburg" onclick="hamburg()"></i>
+    </div>
+        <div class="dropdown">
+            <div class="links">
+                <a href="index.html">Accueil</a>
+                <a href="btssio.html">BTS SIO</a>
+                <a href="e5.html">Épreuve 5 </a>
+                <a href="e6.html">Épreuve 6 </a>
+                <a href="profil=.html">Profil</a>
+                <a href="projet.html">Projets</a>
+                <a href="veille.html">Veille</a>
+                <i class="fa-solid fa-xmark cancel" onclick="cancel()"></i>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Contenu Principal -->
+    <div class="main-content">
+        <!-- Section Présentation Filière -->
+        <div class="section">
+            <h2>Qu'est ce que le BTS SIO ?</h2>
+            <p>Reconnu par l’Etat, le BTS SIO a remplacé depuis 2011 le BTS IG (Informatique et gestion).
+                Cette nouvelle formule entend s’adapter aux besoins constatés sur le marché du travail de profils qualifiés en TIC (Technologies d’Information Communication).
+                Pour remplir cet objectif particulier, elle s’est déclinée en deux spécialités distinctes : BTS SIO SISR et BTS SIO SLAM.
+                Celles-ci, comportent des modules techniques en liaison avec l’informatique, et d’autres de culture générale et de management.
+                Elles proposent également des périodes de stages en entreprise d’une durée de 10 à 11 semaines ou une alternance, afin d’initier les étudiants aux réalités du domaine professionnel et doper leur employabilité.</p>
+        </div>
+
+        <!-- Section SLAM -->
+        <div class="section">
+            <h2>Option SLAM</h2>
+            <p>Solutions Logicielles et Applications Métiers : Cette option forme des spécialistes du développement d'applications. Le BTS SIO SLAM, est un parcours dédiés aux passionnés du développement logiciel. Durant leurs deux années d’études, les étudiants apprennent à rédiger un cahier des charges, développer des applications et assurer leur intégration dans les systèmes informatisés de la société. Les étudiants apprennent à :</p>
+            <p>- Développer des applications<br>
+               - Gérer des bases de données<br>
+               - Créer des solutions web<br>
+               - Former les utilisateurs<br>
+               - Maintenir des solutions applicatives</p>
+        </div>
+
+        <!-- Section SISR -->
+        <div class="section">
+            <h2>Option SISR</h2>
+            <p>Solutions d'Infrastructure, Systèmes et Réseaux : Cette option forme des administrateurs réseaux et systèmes. Le BTS SIO SISR, est une option du BTS SIO qui a pour but de former des techniciens réseau polyvalents. Les lauréats de ce programme ont toutes les compétences nécessaires pour la gestion et la maintenance du réseau d’une entreprise. Ils peuvent également intervenir quant à l’achat du matériel réseau employé en négociant directement avec les fournisseurs. Les étudiants apprennent à :</p>
+            <p>- Administrer des réseaux<br>
+               - Gérer des systèmes<br>
+               - Sécuriser l'infrastructure<br>
+               - Maintenir les services<br>
+               - Résoudre les incidents</p>
+        </div>
+
+        <!-- Section Débouchés -->
+        <div class="section">
+            <h2>Débouchés</h2>
+            <p>Le BTS SIO offre de nombreuses opportunités professionnelles. Voici quelques exemples :</p>
+            <p>Pour SLAM :<br>
+               - Développeur d'applications<br>
+               - Analyste programmeur<br>
+               - Développeur web<br>
+               - Chargé d'études informatiques</p>
+            <p>Pour SISR :<br>
+               - Administrateur systèmes et réseaux<br>
+               - Technicien de maintenance<br>
+               - Responsable du parc informatique<br>
+               - Technicien support</p>
+        </div>
+    </div>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            offset: 0,
+            duration: 1000
+        });
+    </script>
+    <script src="script.js"></script>
+</body>
+</html>
+</html>
