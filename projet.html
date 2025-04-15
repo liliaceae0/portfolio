@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="fr"><head>
+    <meta charset="UTF-8">    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projets - Portfolio</title>    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />    <link rel="stylesheet" href="../assets/css/style.css">
+    <style>        body {
+            background: #000000;            min-height: 100vh;
+            overflow-x: hidden;            color: white;
+        }
+        .content-container {            padding: 20px;
+            margin-top: 20vh;            text-align: center;
+        }
+        .en-cours {            background: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(10px);            border-radius: 15px;
+            padding: 3rem;            margin: 3rem auto;
+            max-width: 600px;            border: 1px solid rgba(255, 32, 121, 0.3);
+            animation: pulse 2s infinite;        }
+        .en-cours h1 {
+            font-size: 3rem;            color: #ff2079;
+            text-shadow: 0 0 10px #ff2079;            margin-bottom: 20px;
+        }
+        .en-cours p {            font-size: 1.2rem;
+            color: rgba(255, 255, 255, 0.8);            line-height: 1.6;
+        }
+        @keyframes pulse {            0% {
+                box-shadow: 0 0 0 0 rgba(255, 32, 121, 0.4);            }
+            70% {                box-shadow: 0 0 0 20px rgba(255, 32, 121, 0);
+            }            100% {
+                box-shadow: 0 0 0 0 rgba(255, 32, 121, 0);            }
+        }    </style>
+</head><body>
+    <video autoplay muted loop id="myVideo">        <source src="../assets/images/blue.mp4" type="video/mp4">
+    </video>
+    <nav>        <div class="nav-container">
+            <div class="logo" data-aos="zoom-in" data-aos-duration="1500">                Esra <span>Atia</span>
+            </div>            <div class="links">
+                <div class="link" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="100"><a href="../index.html">Accueil</a></div>                <div class="link" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="100"><a href="btssio.html">BTS SIO</a></div>
+                <div class="link" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="100"><a href="e5.html">Épreuve 5</a></div>                <div class="link" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="100"><a href="e6.html">Épreuve 6</a></div>
+                <div class="link" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="200"><a href="profil.html">Profil</a></div>                <div class="link" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="300"><a href="projet.html">Projets</a></div>
+                <div class="link" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="400"><a href="veille.html">Veille</a></div>            </div>
+            <i class="fa-solid fa-bars hamburg" onclick="hamburg()"></i>        </div>
+        <div class="dropdown">            <div class="links">
+                <a href="../index.html">Accueil</a>                <a href="btssio.html">BTS SIO</a>
+                <a href="e5.html">Épreuve 5</a>                <a href="e6.html">Épreuve 6</a>
+                <a href="profil.html">Profil</a>                <a href="projet.html">Projets</a>
+                <a href="veille.html">Veille</a>                <i class="fa-solid fa-xmark cancel" onclick="cancel()"></i>
+            </div>        </div>
+    </nav>
+    <div class="content-container">        <div class="en-cours" data-aos="fade-up" data-aos-duration="1500">
+            <h1>En cours</h1>            <p>Cette section est actuellement en développement. De nouveaux projets seront bientôt disponibles.</p>
+        </div>    </div>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>        AOS.init({
+            offset: 0,            duration: 1000
+        });    </script>
+    <script src="../js/script.js"></script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
