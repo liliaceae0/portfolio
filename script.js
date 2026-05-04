@@ -46,3 +46,24 @@ function eraseText(){
     }
 }
 window.onload = typeWriter
+
+document.addEventListener('DOMContentLoaded', function () {
+    document.querySelectorAll('.production-thumb img').forEach(function (img) {
+        img.addEventListener('click', function () {
+            window.open(this.src, '_blank');
+        });
+    });
+
+    var cf = document.getElementById('contactForm');
+    if (cf) {
+        cf.addEventListener('submit', function (e) {
+            e.preventDefault();
+            var n   = document.getElementById('cName').value;
+            var em  = document.getElementById('cEmail').value;
+            var msg = document.getElementById('cMsg').value;
+            window.location.href = 'mailto:esraatia.pro@gmail.com'
+                + '?subject=' + encodeURIComponent('Message de ' + n)
+                + '&body='    + encodeURIComponent('De : ' + n + '\nEmail : ' + em + '\n\n' + msg);
+        });
+    }
+});

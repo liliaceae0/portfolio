@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TP ITIL &amp; ISO 27001 — Mise en conformité (cas TechNova)</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <link rel="stylesheet" href="style.css">
+    <style>:root{color-scheme:dark}html{scroll-behavior:smooth}body{background:#07070f;color:#e2e8f0;min-height:100%;overflow-y:auto}.container{max-width:1200px;margin:0 auto;padding:0 1.5rem}.breadcrumb{display:flex;align-items:center;gap:.5rem;font-size:.85rem;color:rgba(255,255,255,.55);margin-bottom:1.5rem;flex-wrap:wrap}.breadcrumb a{color:#2dd4bf;text-decoration:none}.breadcrumb-sep{opacity:.4}.btn-back{display:inline-flex;align-items:center;gap:.5rem;color:rgba(255,255,255,.75);text-decoration:none;font-size:.92rem;margin-bottom:1.8rem;transition:color .2s ease,gap .2s ease}.btn-back:hover{color:#2dd4bf;gap:.75rem}.detail-hero{padding:3.5rem 0 1.5rem;border-bottom:1px solid rgba(255,255,255,.08)}.detail-hero-badges{display:flex;flex-wrap:wrap;gap:.5rem;margin-bottom:1rem}.hero-badge{display:inline-flex;align-items:center;gap:.4rem;padding:.45rem .95rem;border-radius:999px;font-size:.82rem;font-weight:600}.hero-badge-period{background:rgba(45,212,191,.12);color:#a7f3d0;border:1px solid rgba(45,212,191,.2)}.hero-badge-org{background:rgba(255,255,255,.08);color:rgba(255,255,255,.85);border:1px solid rgba(255,255,255,.12)}.detail-hero-title{font-size:clamp(1.8rem,4vw,2.8rem);font-weight:700;margin:0 0 1rem;line-height:1.1}.detail-hero-intro{color:rgba(226,232,240,.82);line-height:1.8;max-width:760px;margin-bottom:1.4rem}.detail-main{padding:2.5rem 0 4rem}.detail-layout{display:grid;grid-template-columns:2fr 1fr;gap:2rem;align-items:start}.detail-block{background:rgba(15,23,42,.9);border:1px solid rgba(255,255,255,.08);border-radius:18px;overflow:hidden;margin-bottom:1.4rem}.detail-block-header{display:flex;align-items:center;gap:.85rem;padding:1.1rem 1.4rem;background:rgba(45,212,191,.07);border-bottom:1px solid rgba(255,255,255,.08)}.detail-block-icon{width:36px;height:36px;border-radius:12px;display:flex;align-items:center;justify-content:center;background:rgba(45,212,191,.15);color:#a7f3d0}.detail-block-title{font-size:1rem;font-weight:700;color:#fff;margin:0}.detail-block-body{padding:1.45rem 1.4rem 1.6rem}.detail-block-body p,.detail-block-body li{color:rgba(226,232,240,.8);line-height:1.75;font-size:.95rem}.detail-quote{border-left:3px solid #2dd4bf;padding:1rem 1.2rem;background:rgba(45,212,191,.07);border-radius:0 12px 12px 0;font-style:italic;color:rgba(226,232,240,.82)}.env-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1.15rem}.env-section-title{display:flex;align-items:center;gap:.5rem;font-size:.86rem;color:rgba(226,232,240,.7);margin-bottom:.85rem}.env-list{list-style:none;padding:0;margin:0}.env-item{display:flex;align-items:flex-start;gap:.55rem;margin-bottom:.7rem;color:rgba(226,232,240,.78);font-size:.92rem}.env-check{color:#2dd4bf;margin-top:3px}.steps-list{list-style:none;padding:0;margin:0}.step-item{display:flex;align-items:flex-start;gap:1rem;margin-bottom:1rem}.step-num{width:30px;height:30px;min-width:30px;border-radius:999px;background:#2dd4bf;color:#07070f;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:.85rem}.step-text{color:rgba(226,232,240,.82);line-height:1.7}.detail-block-bilan{border-color:rgba(45,212,191,.2)}.detail-sidebar{display:flex;flex-direction:column;gap:1.25rem}.sidebar-card{background:rgba(15,23,42,.92);border:1px solid rgba(255,255,255,.08);border-radius:18px;padding:1.4rem}.sidebar-card-title{display:flex;align-items:center;gap:.75rem;font-size:.95rem;font-weight:700;color:#fff;margin-bottom:1rem}.sidebar-info-list{display:grid;gap:.85rem}.sidebar-info-row{display:flex;justify-content:space-between;gap:.75rem}.sidebar-info-label{color:rgba(226,232,240,.65);font-size:.8rem}.sidebar-info-value{color:rgba(226,232,240,.9);font-size:.92rem;text-align:right}.proj-navigation{padding:2rem 0 4rem}.proj-nav-inner{display:flex;flex-wrap:wrap;gap:1rem;justify-content:space-between;align-items:center}.proj-nav-btn{display:block;width:100%;max-width:360px;padding:1rem 1.2rem;background:rgba(15,23,42,.92);border:1px solid rgba(255,255,255,.08);border-radius:16px;color:#fff;text-decoration:none;transition:transform .2s ease,border-color .2s ease}.proj-nav-btn:hover{border-color:#2dd4bf;transform:translateY(-2px)}.proj-nav-dir{display:flex;align-items:center;gap:.5rem;color:rgba(255,255,255,.7);font-size:.85rem;margin-bottom:.45rem}.proj-nav-name{color:#f8fafc;font-weight:600;font-size:.95rem}@media(max-width:960px){.detail-layout{grid-template-columns:1fr}}</style>
+</head>
+<body>
+    <div class="bg-animation"><div class="blob blob-1"></div><div class="blob blob-2"></div><div class="blob blob-3"></div><div class="blob blob-4"></div></div>
+    <nav><div class="nav-container"><div class="logo">Esra <span>Atia</span></div><div class="links"><a href="index.html">Accueil</a><a href="btssio.html">BTS SIO</a><a href="e5.html">Épreuve 5</a><a href="profil.html">Profil</a><a href="veille.html">Veille</a></div><i class="fa-solid fa-bars hamburg" onclick="hamburg()"></i></div><div class="dropdown"><div class="links"><a href="index.html">Accueil</a><a href="btssio.html">BTS SIO</a><a href="e5.html">Épreuve 5</a><a href="profil.html">Profil</a><a href="veille.html">Veille</a><i class="fa-solid fa-xmark cancel" onclick="cancel()"></i></div></div></nav>
+    <main>
+        <section class="detail-hero" data-aos="fade-down"><div class="container">
+            <nav class="breadcrumb" aria-label="Fil d'Ariane"><a href="index.html"><i class="fas fa-home"></i> Accueil</a><span class="breadcrumb-sep"><i class="fas fa-chevron-right"></i></span><a href="e5.html">Épreuve 5</a><span class="breadcrumb-sep"><i class="fas fa-chevron-right"></i></span><span>TP ITIL / ISO 27001</span></nav>
+            <a href="e5.html" class="btn-back"><i class="fas fa-arrow-left"></i> Retour aux réalisations</a>
+            <div data-aos="fade-up" data-aos-delay="100">
+                <div class="detail-hero-badges"><span class="hero-badge hero-badge-period"><i class="fas fa-calendar-alt"></i> sept. 2025 – juin 2026</span><span class="hero-badge hero-badge-org"><i class="fas fa-graduation-cap"></i> 2ème Année BTS SIO</span></div>
+                <h1 class="detail-hero-title">TP ITIL &amp; ISO 27001 : mise en conformité (cas TechNova)</h1>
+                <p class="detail-hero-intro">Étude de cas sur l'entreprise fictive TechNova : identification des non-conformités ITIL et ISO 27001, rédaction de procédures correctives et plan d'amélioration.</p>
+            </div>
+        </div></section>
+        <section class="detail-main"><div class="container"><div class="detail-layout">
+            <div class="detail-content">
+                <div class="detail-block" data-aos="fade-up">
+                    <div class="detail-block-header"><span class="detail-block-icon"><i class="fas fa-info-circle"></i></span><h2 class="detail-block-title">Contexte</h2></div>
+                    <div class="detail-block-body"><p>TP encadré sur étude de cas "TechNova". Cette entreprise fictive avait des pratiques non conformes (incidents non suivis, droits admin pour tous, sauvegardes jamais testées).</p></div>
+                </div>
+                <div class="detail-block" data-aos="fade-up" data-aos-delay="50">
+                    <div class="detail-block-header"><span class="detail-block-icon"><i class="fas fa-question-circle"></i></span><h2 class="detail-block-title">Problématique</h2></div>
+                    <div class="detail-block-body"><div class="detail-quote">Comment identifier les écarts par rapport à ITIL et ISO 27001 dans une entreprise, et rédiger des procédures correctives conformes ?</div></div>
+                </div>
+                <div class="detail-block" data-aos="fade-up" data-aos-delay="100">
+                    <div class="detail-block-header"><span class="detail-block-icon"><i class="fas fa-server"></i></span><h2 class="detail-block-title">Environnement technique</h2></div>
+                    <div class="detail-block-body">
+                        <div class="env-grid">
+                            <div><div class="env-section-title"><i class="fas fa-book"></i> Référentiels</div><ul class="env-list"><li class="env-item"><i class="fas fa-check-circle env-check"></i> Documentation ITIL</li><li class="env-item"><i class="fas fa-check-circle env-check"></i> ISO 27001</li></ul></div>
+                            <div><div class="env-section-title"><i class="fas fa-tools"></i> Outils</div><ul class="env-list"><li class="env-item"><i class="fas fa-check-circle env-check"></i> Word, Excel (bureautique)</li></ul></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="detail-block" data-aos="fade-up" data-aos-delay="150">
+                    <div class="detail-block-header"><span class="detail-block-icon"><i class="fas fa-list-ol"></i></span><h2 class="detail-block-title">Étapes réalisées</h2></div>
+                    <div class="detail-block-body">
+                        <ol class="steps-list">
+                            <li class="step-item"><span class="step-num">1</span><span class="step-text">Présentation d'ITIL et ISO 27001.</span></li>
+                            <li class="step-item"><span class="step-num">2</span><span class="step-text">Analyse des non-conformités (incidents non suivis, droits admin pour tous, sauvegardes jamais testées).</span></li>
+                            <li class="step-item"><span class="step-num">3</span><span class="step-text">Rédaction des procédures correctives (gestion incidents ITIL, gestion accès ISO 27001, sauvegarde avec test restauration).</span></li>
+                            <li class="step-item"><span class="step-num">4</span><span class="step-text">Justification de la conformité de chaque procédure.</span></li>
+                            <li class="step-item"><span class="step-num">5</span><span class="step-text">Proposition d'amélioration (outil, formation, audit).</span></li>
+                        </ol>
+                    </div>
+                </div>
+                <div class="detail-block detail-block-bilan" data-aos="fade-up" data-aos-delay="200">
+                    <div class="detail-block-header"><span class="detail-block-icon"><i class="fas fa-star"></i></span><h2 class="detail-block-title">Bilan</h2></div>
+                    <div class="detail-block-body"><p>Dossier de procédures complet et conforme aux référentiels. Capacité à auditer une organisation et à rédiger des procédures formelles.</p></div>
+                </div>
+            </div>
+            <aside class="detail-sidebar">
+                <div class="sidebar-card" data-aos="fade-left" data-aos-delay="50">
+                    <h3 class="sidebar-card-title"><i class="fas fa-graduation-cap"></i> Organisation</h3>
+                    <div class="sidebar-info-list">
+                        <div class="sidebar-info-row"><span class="sidebar-info-label">Formation</span><span class="sidebar-info-value">2ème Année BTS SIO</span></div>
+                        <div class="sidebar-info-row"><span class="sidebar-info-label">Type</span><span class="sidebar-info-value">TP encadré</span></div>
+                    </div>
+                </div>
+                <div class="sidebar-card" data-aos="fade-left" data-aos-delay="100">
+                    <h3 class="sidebar-card-title"><i class="fas fa-calendar-alt"></i> Période</h3>
+                    <div class="sidebar-info-list">
+                        <div class="sidebar-info-row"><span class="sidebar-info-label">Année</span><span class="sidebar-info-value">sept. 2025 – juin 2026</span></div>
+                    </div>
+                </div>
+                <div class="sidebar-card" data-aos="fade-left" data-aos-delay="150">
+                    <h3 class="sidebar-card-title"><i class="fas fa-lightbulb"></i> Compétences</h3>
+                    <div class="sidebar-info-list">
+                        <div class="sidebar-info-row"><span class="sidebar-info-label">C2</span><span class="sidebar-info-value">Exploiter des référentiels, normes et standards adoptés par le prestataire informatique</span></div>
+                    </div>
+                </div>
+            </aside>
+        </div></div></section>
+        <section class="proj-navigation" data-aos="fade-up"><div class="container"><div class="proj-nav-inner">
+            <a href="e5-form-11.html" class="proj-nav-btn"><span class="proj-nav-dir"><i class="fas fa-arrow-left"></i> Précédent</span><span class="proj-nav-name">TP GLPI</span></a>
+            <a href="e5.html" class="proj-nav-btn" style="max-width:240px;text-align:center;">Toutes les réalisations</a>
+            <a href="e5-form-13.html" class="proj-nav-btn"><span class="proj-nav-dir">Suivant <i class="fas fa-arrow-right"></i></span><span class="proj-nav-name">TP Wazuh</span></a>
+        </div></div></section>
+    </main>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>if(typeof AOS!=='undefined')AOS.init({duration:800,once:true,offset:100,easing:'ease-out-cubic'});</script>
+    <script src="script.js"></script>
+</body>
+</html>

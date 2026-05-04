@@ -3,393 +3,421 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Veille Technologique - OSINT</title>
+    <title>Veille Technologique — La 5G — Portfolio Esra</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
     <link rel="stylesheet" href="style.css">
     <style>
-        body {
-            background: #000000;
-            min-height: 100vh;
-            overflow-x: hidden;
-            color: white;
-        }
+        html { scroll-behavior: smooth; }
+        body { overflow-y: auto; color: #dfe3ea; min-height: 100%; }
+        .v-container { max-width: 1100px; margin: 0 auto; padding: 2rem 1.5rem 5rem; position: relative; z-index: 1; }
 
-        .content-container {
-            padding: 20px;
-            margin-top: 10vh;
-            background: rgba(0, 0, 0, 0.7);
-        }
+        /* Hero */
+        .v-hero { text-align: center; padding: 3.5rem 1.5rem 2.5rem; }
+        .v-hero-label { display: inline-flex; align-items: center; gap: 0.5rem; background: rgba(157,110,221,0.1); border: 1px solid rgba(157,110,221,0.22); color: #c4b5fd; border-radius: 999px; padding: 0.4rem 1rem; font-size: 0.78rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 1.4rem; }
+        .v-hero h1 { font-size: clamp(2rem,5vw,3.4rem); font-weight: 800; color: #fff; line-height: 1.1; margin-bottom: 1.2rem; }
+        .v-hero h1 span { color: #9d6edd; }
+        .v-hero-intro { max-width: 700px; margin: 0 auto; color: rgba(223,227,234,0.78); line-height: 1.85; font-size: 1.05rem; }
 
-        .veille-section {
-            margin-bottom: 40px;
-            text-align: center;
-        }
+        /* Section headings */
+        .v-section { margin: 3.5rem 0 2rem; }
+        .v-section-title { display: flex; align-items: center; gap: 0.85rem; margin-bottom: 1.5rem; }
+        .v-section-title-icon { width: 40px; height: 40px; border-radius: 14px; background: rgba(157,110,221,0.15); color: #c4b5fd; display: flex; align-items: center; justify-content: center; font-size: 1.05rem; flex-shrink: 0; }
+        .v-section-title h2 { font-size: 1.5rem; font-weight: 700; color: #fff; margin: 0; }
+        .v-section-title p { font-size: 0.88rem; color: rgba(223,227,234,0.6); margin: 0.2rem 0 0; }
+        .v-divider { height: 1px; background: rgba(255,255,255,0.08); margin: 3rem 0; }
 
-        .veille-section h1 {
-            font-size: 2.5rem;
-            color: #ff2079;
-            text-shadow: 0 0 10px #ff2079;
-            margin-bottom: 20px;
-        }
+        /* Tool cards */
+        .tool-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.2rem; }
+        .tool-card { background: rgba(10,8,22,0.82); border: 1px solid rgba(255,255,255,0.08); border-radius: 18px; padding: 1.4rem; transition: transform 0.25s ease, border-color 0.25s ease; }
+        .tool-card:hover { transform: translateY(-4px); border-color: rgba(157,110,221,0.25); }
+        .tool-card-icon { width: 44px; height: 44px; border-radius: 14px; background: rgba(157,110,221,0.12); color: #c4b5fd; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; margin-bottom: 0.85rem; }
+        .tool-card h3 { font-size: 1rem; font-weight: 700; color: #fff; margin: 0 0 0.5rem; }
+        .tool-card p { font-size: 0.87rem; color: rgba(223,227,234,0.68); line-height: 1.65; margin: 0; }
 
-        .veille-section h2 {
-            font-size: 1.8rem;
-            color: #4c58ff;
-            text-shadow: 0 0 10px #4c58ff;
-            margin-bottom: 20px;
-        }
+        /* Content block */
+        .v-block { background: rgba(10,8,22,0.82); border: 1px solid rgba(255,255,255,0.08); border-radius: 20px; padding: 1.75rem 2rem; margin-bottom: 1.4rem; }
+        .v-block h3 { font-size: 1.15rem; font-weight: 700; color: #c4b5fd; margin: 0 0 1rem; display: flex; align-items: center; gap: 0.65rem; }
+        .v-block p { color: rgba(223,227,234,0.8); line-height: 1.85; font-size: 0.97rem; margin: 0 0 0.85rem; }
+        .v-block p:last-child { margin-bottom: 0; }
 
-        .veille-section p {
-            font-size: 1.2rem;
-            color: rgba(255, 255, 255, 0.8);
-            max-width: 800px;
-            margin: 0 auto 20px auto;
-            line-height: 1.6;
-        }
+        /* Article cards */
+        .article-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.4rem; }
+        .article-card { background: rgba(10,8,22,0.85); border: 1px solid rgba(255,255,255,0.08); border-radius: 20px; overflow: hidden; transition: transform 0.28s ease, border-color 0.28s ease; display: flex; flex-direction: column; }
+        .article-card:hover { transform: translateY(-5px); border-color: rgba(157,110,221,0.25); }
+        .article-card-top { padding: 1.4rem 1.4rem 0; }
+        .article-tag { display: inline-flex; align-items: center; gap: 0.4rem; background: rgba(157,110,221,0.1); border: 1px solid rgba(157,110,221,0.2); color: #c4b5fd; border-radius: 999px; padding: 0.3rem 0.75rem; font-size: 0.72rem; font-weight: 700; text-transform: uppercase; margin-bottom: 0.85rem; }
+        .article-card h3 { font-size: 1rem; font-weight: 700; color: #fff; line-height: 1.4; margin: 0 0 0.75rem; }
+        .article-card p { font-size: 0.88rem; color: rgba(223,227,234,0.72); line-height: 1.7; margin: 0; }
+        .article-card-footer { padding: 1rem 1.4rem 1.4rem; margin-top: auto; }
+        .article-link { display: inline-flex; align-items: center; gap: 0.5rem; color: #9d6edd; font-size: 0.85rem; font-weight: 600; text-decoration: none; border-bottom: 1px solid transparent; transition: border-color 0.2s ease; }
+        .article-link:hover { border-bottom-color: #9d6edd; }
 
-        .separator {
-            width: 80%;
-            height: 2px;
-            background: linear-gradient(90deg, #ff2079, #4c58ff);
-            margin: 40px auto;
-        }
+        /* Pros/cons */
+        .pros-cons-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.4rem; }
+        .pros-block { background: rgba(45,212,191,0.06); border: 1px solid rgba(45,212,191,0.18); border-radius: 18px; padding: 1.4rem; }
+        .cons-block { background: rgba(212,99,139,0.06); border: 1px solid rgba(212,99,139,0.18); border-radius: 18px; padding: 1.4rem; }
+        .pc-title { display: flex; align-items: center; gap: 0.65rem; font-weight: 700; font-size: 1rem; margin-bottom: 1rem; }
+        .pc-title-pros { color: #a7f3d0; }
+        .pc-title-cons { color: #fecdd3; }
+        .pc-list { list-style: none; padding: 0; margin: 0; }
+        .pc-list li { display: flex; align-items: flex-start; gap: 0.6rem; color: rgba(223,227,234,0.82); font-size: 0.9rem; line-height: 1.6; margin-bottom: 0.65rem; }
+        .pc-list li::before { content: ''; width: 6px; height: 6px; border-radius: 50%; flex-shrink: 0; margin-top: 0.45rem; }
+        .pros-block .pc-list li::before { background: #2dd4bf; }
+        .cons-block .pc-list li::before { background: #d4638b; }
 
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 20px;
-            margin-top: 40px;
-        }
+        /* Jobs list */
+        .jobs-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1rem; }
+        .job-category { background: rgba(10,8,22,0.82); border: 1px solid rgba(255,255,255,0.08); border-radius: 16px; padding: 1.2rem; }
+        .job-category h4 { font-size: 0.9rem; font-weight: 700; color: #c4b5fd; margin: 0 0 0.75rem; display: flex; align-items: center; gap: 0.5rem; }
+        .job-category ul { list-style: none; padding: 0; margin: 0; }
+        .job-category li { font-size: 0.85rem; color: rgba(223,227,234,0.75); padding: 0.3rem 0; border-bottom: 1px solid rgba(255,255,255,0.05); display: flex; align-items: center; gap: 0.5rem; }
+        .job-category li:last-child { border-bottom: none; }
+        .job-category li::before { content: '›'; color: #9d6edd; font-weight: 700; }
 
-        .article-card {
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            border-radius: 10px;
-            padding: 20px;
-            box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
+        /* Sources */
+        .sources-list { list-style: none; padding: 0; margin: 0; display: grid; gap: 0.65rem; }
+        .sources-list li { display: flex; align-items: flex-start; gap: 0.75rem; color: rgba(223,227,234,0.78); font-size: 0.9rem; line-height: 1.6; }
+        .sources-list li i { color: #9d6edd; margin-top: 3px; flex-shrink: 0; }
+        .sources-list a { color: #9d6edd; text-decoration: none; }
+        .sources-list a:hover { text-decoration: underline; }
 
-        .article-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 0 30px rgba(255, 255, 255, 0.4);
-        }
+        /* Quote */
+        .v-quote { border-left: 3px solid #9d6edd; padding: 1rem 1.4rem; background: rgba(157,110,221,0.07); border-radius: 0 14px 14px 0; font-style: italic; color: rgba(223,227,234,0.85); line-height: 1.8; font-size: 0.97rem; margin: 1.2rem 0; }
 
-        .article-card h3 {
-            font-size: 1.5rem;
-            color: #ff2079;
-            text-shadow: 0 0 10px #ff2079;
-            margin-bottom: 10px;
-        }
-
-        .article-card p {
-            font-size: 1rem;
-            color: rgba(255, 255, 255, 0.8);
-            margin-bottom: 15px;
-        }
-
-        .article-card a {
-            display: inline-block;
-            padding: 10px 20px;
-            background: linear-gradient(45deg, #ff2079, #4c58ff);
-            color: white;
-            text-decoration: none;
-            border-radius: 5px;
-            transition: background 0.3s ease;
-        }
-
-        .article-card a:hover {
-            background: linear-gradient(45deg, #4c58ff, #ff2079);
-            box-shadow: 0 0 10px #ff2079;
+        @media (max-width: 700px) {
+            .pros-cons-grid { grid-template-columns: 1fr; }
+            .v-block { padding: 1.2rem; }
         }
     </style>
 </head>
 <body>
-    <!-- The video -->
-    <video autoplay muted loop id="myVideo">
-        <source src="blue.mp4" type="video/mp4">
-    </video>
+    <div class="bg-animation">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+        <div class="blob blob-3"></div>
+        <div class="blob blob-4"></div>
+    </div>
 
     <nav>
         <div class="nav-container">
-            <div class="logo" data-aos="zoom-in" data-aos-duration="1500">
-                Esra <span>Atia</span>
-            </div>
+            <div class="logo" data-aos="zoom-in" data-aos-duration="1500">Esra <span>Atia</span></div>
             <div class="links">
-                <div class="link" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="100"><a href="index.html">Accueil</a></div>
-                <div class="link" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="100"><a href="btssio.html">BTS SIO</a></div>
-                <div class="link" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="100"><a href="e5.html">Épreuve 5</a></div>
-                <div class="link" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="100"><a href="e6.html">Épreuve 6</a></div>
-                <div class="link" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="200"> <a href="profil.html">Profil</a></div>
-                <div class="link" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="300"><a href="projet.html">Projets</a></div>
-                <div class="link" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="400"><a href="veille.html">Veille</a></div>
+                <div class="link"><a href="index.html">Accueil</a></div>
+                <div class="link"><a href="btssio.html">BTS SIO</a></div>
+                <div class="link"><a href="e5.html">Épreuve 5</a></div>
+                <div class="link"><a href="profil.html">Profil</a></div>
+                <div class="link"><a href="veille.html">Veille</a></div>
+                <div class="link"><a href="contact.html">Contact</a></div>
+            </div>
+            <i class="fa-solid fa-bars hamburg" onclick="hamburg()"></i>
         </div>
-        <i class="fa-solid fa-bars hamburg" onclick="hamburg()"></i>
-    </div>
         <div class="dropdown">
             <div class="links">
                 <a href="index.html">Accueil</a>
                 <a href="btssio.html">BTS SIO</a>
-                <a href="e5.html">Épreuve 5 </a>
-                <a href="e6.html">Épreuve 6 </a>
-                <a href="profil=.html">Profil</a>
-                <a href="projet.html">Projets</a>
+                <a href="e5.html">Épreuve 5</a>
+                <a href="profil.html">Profil</a>
                 <a href="veille.html">Veille</a>
+                <a href="contact.html">Contact</a>
                 <i class="fa-solid fa-xmark cancel" onclick="cancel()"></i>
             </div>
         </div>
     </nav>
 
-    <div class="content-container">
-        <section class="veille-section" data-aos="fade-up" data-aos-duration="1500">
-            <h1>Veille Technologique</h1>
-            <hr class="separator">
-            <h2>Ma veille technologique et mes outils</h2>
-            <p>
-                Pour effectuer ma veille technologique, j’utilise des outils comme <strong>Google Alertes</strong>, <strong>Maltego</strong>, et <strong>Shodan</strong>. Ces outils me permettent de surveiller les tendances, les vulnérabilités, et les actualités liées à la cybersécurité et à l'OSINT.
-            </p>
-            <p>
-                L'<strong>OSINT</strong> (Open Source Intelligence) est une méthode de collecte d'informations à partir de sources publiques et ouvertes. Utilisée dans divers domaines comme la cybersécurité, le renseignement, et le journalisme, l'OSINT permet d'analyser des données accessibles à tous pour en tirer des conclusions stratégiques.
-            </p>
-        </section>
+    <div class="v-container">
 
-        <section class="veille-section" data-aos="fade-up" data-aos-duration="1500">
-            <h2>Articles sur l'OSINT</h2>
-            <div class="grid">
-                <article class="article-card">
-                    <h3>L'OSINT dans la cybersécurité</h3>
-                    <p>Cet article explore comment l'OSINT est utilisé pour identifier les menaces en ligne et protéger les systèmes informatiques. Il met en lumière des outils comme Shodan et les techniques de reconnaissance.</p>
-                    <a href="https://www.cyber.gov.au/acsc/view-all-content/publications/using-open-source-intelligence-osint-cyber-security" target="_blank">Lire l'article</a>
-                </article>
+        <!-- Hero -->
+        <div class="v-hero" data-aos="fade-up" data-aos-duration="1000">
+            <div class="v-hero-label"><i class="fas fa-satellite-dish"></i> BTS SIO SISR — Compétences C19 &amp; C20</div>
+            <h1>Veille Technologique<br><span>La 5G</span></h1>
+            <p class="v-hero-intro">Une veille approfondie sur la cinquième génération de réseaux mobiles : fonctionnement, impacts sur la spécialité SISR, enjeux de santé et de sécurité, débouchés professionnels et analyses d'articles sourcés.</p>
+        </div>
 
-                <article class="article-card">
-                    <h3>Les outils modernes d'OSINT</h3>
-                    <p>Découvrez les outils les plus récents utilisés dans l'OSINT, tels que Maltego, SpiderFoot, et Recon-ng. Cet article explique comment ces outils peuvent être utilisés pour collecter et analyser des données publiques.</p>
-                    <a href="https://www.sans.org/blog/osint-tools-for-penetration-testing/" target="_blank">Lire l'article</a>
-                </article>
+        <div class="v-divider"></div>
 
-                <article class="article-card">
-                    <h3>OSINT et journalisme</h3>
-                    <p>Cet article examine comment les journalistes utilisent l'OSINT pour enquêter sur des sujets sensibles, vérifier des informations, et découvrir des histoires cachées. Un outil puissant pour la transparence et la vérité.</p>
-                    <a href="https://www.cjr.org/tow_center/osint-journalism.php" target="_blank">Lire l'article</a>
-                </article>
+        <!-- Outils de veille -->
+        <div class="v-section" data-aos="fade-up">
+            <div class="v-section-title">
+                <div class="v-section-title-icon"><i class="fas fa-tools"></i></div>
+                <div>
+                    <h2>Mes outils de veille</h2>
+                    <p>Comment je collecte et analyse l'information</p>
+                </div>
             </div>
-        </section>
+            <div class="tool-grid">
+                <div class="tool-card" data-aos="fade-up" data-aos-delay="50">
+                    <div class="tool-card-icon"><i class="fab fa-google"></i></div>
+                    <h3>Google</h3>
+                    <p>Moteur principal pour accéder aux articles techniques, rapports d'experts et dernières avancées sur la 5G.</p>
+                </div>
+                <div class="tool-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="tool-card-icon"><i class="fas fa-robot"></i></div>
+                    <h3>ChatGPT</h3>
+                    <p>Réponses synthétiques et explications approfondies sur des concepts complexes, exploration de nouvelles perspectives.</p>
+                </div>
+                <div class="tool-card" data-aos="fade-up" data-aos-delay="150">
+                    <div class="tool-card-icon"><i class="fab fa-youtube"></i></div>
+                    <h3>YouTube</h3>
+                    <p>Vidéos techniques et démonstrations pratiques : interviews d'experts, présentations technologiques, analyses terrain.</p>
+                </div>
+                <div class="tool-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="tool-card-icon"><i class="fab fa-wikipedia-w"></i></div>
+                    <h3>Wikipédia</h3>
+                    <p>Point de départ pour explorer les bases théoriques et historiques, situer les enjeux dans un contexte global.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="v-divider"></div>
+
+        <!-- Qu'est-ce que la 5G ? -->
+        <div class="v-section" data-aos="fade-up">
+            <div class="v-section-title">
+                <div class="v-section-title-icon"><i class="fas fa-broadcast-tower"></i></div>
+                <div>
+                    <h2>Qu'est-ce que la 5G ?</h2>
+                    <p>Définition, fonctionnement et promesses</p>
+                </div>
+            </div>
+            <div class="v-block" data-aos="fade-up" data-aos-delay="50">
+                <p>La <strong style="color:#c4b5fd;">5G (cinquième génération)</strong> est la dernière évolution des réseaux mobiles, succédant à la 4G. Elle vise à offrir des débits de données plus rapides, une latence ultra faible et la capacité de connecter un nombre beaucoup plus élevé d'appareils simultanément.</p>
+                <p>Concrètement, la 5G permet des vitesses de téléchargement pouvant atteindre <strong style="color:#c4b5fd;">plusieurs gigabits par seconde</strong> (10 à 100 fois plus rapides que la 4G), une latence réduite à <strong style="color:#c4b5fd;">moins de 1 milliseconde</strong> (essentielle pour des applications en temps réel comme la réalité virtuelle, les voitures autonomes, ou la chirurgie à distance), et un meilleur support pour l'Internet des objets (IoT), permettant de connecter des millions d'appareils dans des espaces réduits.</p>
+                <p>La 5G repose sur une nouvelle architecture réseau plus flexible et virtuelle, utilisant des technologies comme la <strong style="color:#c4b5fd;">virtualisation des fonctions réseau (NFV)</strong> et le <strong style="color:#c4b5fd;">réseau défini par logiciel (SDN)</strong>. Elle est conçue pour être plus robuste et énergétiquement efficace, afin de soutenir des applications allant de la réalité augmentée à la télémédecine et à l'automatisation industrielle.</p>
+            </div>
+        </div>
+
+        <!-- Rapport avec la SISR -->
+        <div class="v-section" data-aos="fade-up">
+            <div class="v-section-title">
+                <div class="v-section-title-icon"><i class="fas fa-network-wired"></i></div>
+                <div>
+                    <h2>Lien avec la spécialité SISR</h2>
+                    <p>En quoi la 5G concerne mon domaine</p>
+                </div>
+            </div>
+            <div class="v-block">
+                <p>La 5G et la spécialité SISR sont étroitement liées : la 5G nécessite la <strong style="color:#c4b5fd;">gestion d'infrastructures réseaux complexes</strong>. Les professionnels formés en SISR seront responsables du déploiement des équipements 5G, de la sécurisation des réseaux, de la virtualisation (SDN/NFV), et de la gestion de l'Edge Computing.</p>
+                <p>En résumé, la SISR prépare à <strong style="color:#c4b5fd;">gérer et sécuriser les réseaux de la 5G</strong> — un enjeu central pour les années à venir dans tous les secteurs (industrie, santé, transport, smart cities).</p>
+            </div>
+        </div>
+
+        <div class="v-divider"></div>
+
+        <!-- Sources -->
+        <div class="v-section" data-aos="fade-up">
+            <div class="v-section-title">
+                <div class="v-section-title-icon"><i class="fas fa-book-open"></i></div>
+                <div>
+                    <h2>Mes sources</h2>
+                    <p>Sélection de sources fiables et variées</p>
+                </div>
+            </div>
+            <div class="v-block">
+                <ul class="sources-list">
+                    <li><i class="fas fa-link"></i><span><strong>Le Monde Informatique</strong> — Analyses techniques et implications économiques de la 5G dans les télécommunications.</span></li>
+                    <li><i class="fas fa-link"></i><span><strong>TV5Monde</strong> — Perspective globale sur les enjeux géopolitiques et sociaux de la 5G.</span></li>
+                    <li><i class="fas fa-link"></i><span><strong>Euronews</strong> — Reportages multimédia sur l'impact de la 5G dans la santé, l'automobile et les infrastructures.</span></li>
+                    <li><i class="fas fa-link"></i><span><strong>Anses</strong> — Agence nationale de sécurité sanitaire : <a href="https://www.anses.fr/fr/content/5g-pas-de-risques-nouveaux-pour-la-sante-au-vu-des-donnees-disponibles" target="_blank" rel="noopener">5G et risques pour la santé</a>.</span></li>
+                    <li><i class="fas fa-link"></i><span><strong>ENISA</strong> — Agence européenne pour la cybersécurité : <a href="https://www.enisa.europa.eu/news/enisa-news/tackling-security-challenges-in-5g-networks" target="_blank" rel="noopener">défis de sécurité dans les réseaux 5G</a>.</span></li>
+                    <li><i class="fas fa-link"></i><span><strong>Horizon Powered</strong> — <a href="https://horizonpowered.com/advantages-and-disadvantages-of-5g/" target="_blank" rel="noopener">Avantages et inconvénients de la 5G</a> (portée, antennes).</span></li>
+                    <li><i class="fas fa-link"></i><span><strong>Sanny Telecom</strong> — <a href="https://www.sannytelecom.com/fr/Antennes-4G-vs-antennes-5G/" target="_blank" rel="noopener">Antennes 4G vs 5G</a> : comparaison de portée et densité.</span></li>
+                    <li><i class="fas fa-link"></i><span><strong>France Travail</strong> — <a href="https://www.francetravail.fr/actualites/le-dossier/numerique-telecoms/numerique.html" target="_blank" rel="noopener">Débouchés professionnels liés à la 5G</a>.</span></li>
+                    <li><i class="fas fa-link"></i><span><strong>IDC / IDG News Service</strong> — Analyses marché réseaux privés 5G d'entreprise.</span></li>
+                    <li><i class="fas fa-link"></i><span><strong>Commission européenne</strong> — <a href="https://digital-strategy.ec.europa.eu/fr/node/1215" target="_blank" rel="noopener">Mesures de cybersécurité 5G — Toolbox</a>.</span></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="v-divider"></div>
+
+        <!-- Analyses d'articles -->
+        <div class="v-section" data-aos="fade-up">
+            <div class="v-section-title">
+                <div class="v-section-title-icon"><i class="fas fa-newspaper"></i></div>
+                <div>
+                    <h2>Analyses d'articles</h2>
+                    <p>Quatre articles sélectionnés et commentés</p>
+                </div>
+            </div>
+            <div class="article-grid">
+
+                <div class="article-card" data-aos="fade-up" data-aos-delay="50">
+                    <div class="article-card-top">
+                        <div class="article-tag"><i class="fas fa-industry"></i> Entreprise</div>
+                        <h3>HPE Aruba veut simplifier la 5G privée pour les entreprises</h3>
+                        <p>L'offre HPE Aruba Networking Enterprise Private 5G promet aux entreprises moins de complexité pour le déploiement et la gestion des réseaux cellulaires privés. Le package P5G est livré avec un cœur 4G/5G intégré, des serveurs ProLiant Gen11, des cartes SIM/eSIM et un tableau de bord cloud unique.</p>
+                        <p style="margin-top:0.75rem;color:rgba(199,212,191,0.85);font-size:0.84rem;font-style:italic;">« Jusqu'à présent, la mise en place d'un réseau cellulaire privé d'entreprise était une opération ardue pouvant impliquer jusqu'à sept fournisseurs différents. » — Gayle Levin, HPE Aruba</p>
+                    </div>
+                    <div class="article-card-footer">
+                        <span class="article-link"><i class="fas fa-file-alt"></i> Source : IDG News Service (adapté)</span>
+                    </div>
+                </div>
+
+                <div class="article-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="article-card-top">
+                        <div class="article-tag"><i class="fas fa-plane"></i> Aviation</div>
+                        <h3>Accord sur la 5G entre les opérateurs et la FAA américains</h3>
+                        <p>Le déploiement de la 5G aux États-Unis a provoqué des tensions avec la FAA, en raison d'interférences potentielles avec les <strong style="color:#c4b5fd;">radioaltimètres</strong> des avions. Un accord impose aux opérateurs d'avions d'ajouter des filtres RF ou de remplacer leurs altimètres d'ici fin 2022 pour les compagnies régionales, et mi-2023 pour les grandes compagnies.</p>
+                        <p style="margin-top:0.75rem;color:rgba(199,212,191,0.85);font-size:0.84rem;font-style:italic;">L'IATA a qualifié l'accord de « décevant et irréaliste » faute de garanties à long terme.</p>
+                    </div>
+                    <div class="article-card-footer">
+                        <span class="article-link"><i class="fas fa-file-alt"></i> Source : Jon Gold / IDG News Service</span>
+                    </div>
+                </div>
+
+                <div class="article-card" data-aos="fade-up" data-aos-delay="150">
+                    <div class="article-card-top">
+                        <div class="article-tag"><i class="fas fa-heartbeat"></i> Santé</div>
+                        <h3>La 5G est-elle un risque pour la santé ?</h3>
+                        <p>Le Dr Annie Sasco, médecin épidémiologiste du cancer, alerte sur les conséquences potentiellement dangereuses du déploiement de la 5G. L'Anses indique que, sur la base des connaissances actuelles, il est <strong style="color:#c4b5fd;">peu probable</strong> que la 5G génère de nouveaux risques sanitaires, mais qu'il manque encore de données pour conclure définitivement, notamment pour certaines bandes de fréquences.</p>
+                        <p style="margin-top:0.75rem;color:rgba(199,212,191,0.85);font-size:0.84rem;font-style:italic;">La science est encore en cours d'étude — personne ne peut affirmer avec certitude l'absence totale de risques à long terme.</p>
+                    </div>
+                    <div class="article-card-footer">
+                        <a href="https://www.youtube.com/watch?v=rDwsWqJCYqI" class="article-link" target="_blank" rel="noopener"><i class="fab fa-youtube"></i> Interview Dr Annie Sasco — TV5Monde</a>
+                    </div>
+                </div>
+
+                <div class="article-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="article-card-top">
+                        <div class="article-tag"><i class="fas fa-shield-alt"></i> Sécurité</div>
+                        <h3>Sécurité 5G — Débats au sein de l'Union Européenne</h3>
+                        <p>Le déploiement de la 5G suscite des préoccupations en matière de <strong style="color:#c4b5fd;">surveillance, d'espionnage et de protection des données</strong>. L'UE a publié sa « 5G Cybersecurity Toolbox » pour identifier et réduire les risques (exclusion de fournisseurs à risque des infrastructures critiques). L'ENISA décrit les vulnérabilités spécifiques des réseaux 5G dans ses rapports techniques.</p>
+                        <p style="margin-top:0.75rem;color:rgba(199,212,191,0.85);font-size:0.84rem;font-style:italic;">Les pays de l'UE débattent encore des meilleures garanties pour concilier connectivité et sécurité nationale.</p>
+                    </div>
+                    <div class="article-card-footer">
+                        <a href="https://www.lemondeinformatique.fr/actualites/lire-l-union-europeenne-degaine-son-plan-d-action-pour-securiser-la-5g-77900.html" class="article-link" target="_blank" rel="noopener"><i class="fas fa-external-link-alt"></i> Le Monde Informatique</a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="v-divider"></div>
+
+        <!-- Cœur de la veille : Apports positifs et négatifs -->
+        <div class="v-section" data-aos="fade-up">
+            <div class="v-section-title">
+                <div class="v-section-title-icon"><i class="fas fa-balance-scale"></i></div>
+                <div>
+                    <h2>Cœur de la veille — Bilan de la 5G</h2>
+                    <p>Apports positifs et impacts négatifs</p>
+                </div>
+            </div>
+            <div class="pros-cons-grid" data-aos="fade-up" data-aos-delay="50">
+                <div class="pros-block">
+                    <div class="pc-title pc-title-pros"><i class="fas fa-plus-circle"></i> Apports positifs</div>
+                    <ul class="pc-list">
+                        <li>Très haut débit et faible latence pour des usages innovants (VR, visioconférence HD, travail à distance)</li>
+                        <li>Développement de la télémédecine, suivi des patients connectés et chirurgie assistée à distance</li>
+                        <li>Essor des villes intelligentes (gestion énergie, éclairage, transports)</li>
+                        <li>Stimulation économique, création de nouveaux métiers et innovation dans tous les secteurs</li>
+                        <li>Meilleure accessibilité aux services numériques pour une large population</li>
+                        <li>Industrie 4.0 : usines connectées, robotique, maintenance prédictive</li>
+                    </ul>
+                </div>
+                <div class="cons-block">
+                    <div class="pc-title pc-title-cons"><i class="fas fa-minus-circle"></i> Impacts négatifs &amp; limites</div>
+                    <ul class="pc-list">
+                        <li>Portée plus courte → nécessité de plus d'antennes → exposition accrue aux ondes</li>
+                        <li>Risques sanitaires encore incertains à long terme selon l'Anses</li>
+                        <li>Augmentation des risques cybersécurité (piratage, protection des données IoT)</li>
+                        <li>Fracture numérique : zones rurales moins bien couvertes que les zones urbaines</li>
+                        <li>Dépendance accrue aux réseaux numériques (surveillance, isolement social)</li>
+                        <li>Coût élevé d'infrastructure pour les opérateurs et entreprises</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="v-divider"></div>
+
+        <!-- Débouchés professionnels -->
+        <div class="v-section" data-aos="fade-up">
+            <div class="v-section-title">
+                <div class="v-section-title-icon"><i class="fas fa-briefcase"></i></div>
+                <div>
+                    <h2>Débouchés professionnels liés à la 5G</h2>
+                    <p>Les nouveaux métiers créés par l'avènement de la 5G</p>
+                </div>
+            </div>
+            <p style="color:rgba(223,227,234,0.75);line-height:1.8;margin-bottom:1.5rem;" data-aos="fade-up">L'arrivée de la 5G crée de nombreux débouchés dans le domaine de l'emploi, notamment grâce au développement des nouvelles technologies connectées. Elle génère des opportunités pour des métiers variés dans les réseaux, la sécurité, l'IoT, la santé et la mobilité.</p>
+            <div class="jobs-grid" data-aos="fade-up" data-aos-delay="50">
+                <div class="job-category">
+                    <h4><i class="fas fa-network-wired"></i> Réseaux &amp; Télécoms</h4>
+                    <ul>
+                        <li>Technicien télécoms 5G</li>
+                        <li>Ingénieur réseaux 5G</li>
+                        <li>Architecte réseaux mobiles</li>
+                        <li>Installateur antennes 5G</li>
+                    </ul>
+                </div>
+                <div class="job-category">
+                    <h4><i class="fas fa-shield-alt"></i> Cybersécurité</h4>
+                    <ul>
+                        <li>Expert en cybersécurité</li>
+                        <li>Analyste sécurité réseaux</li>
+                        <li>Responsable RSSI</li>
+                    </ul>
+                </div>
+                <div class="job-category">
+                    <h4><i class="fas fa-microchip"></i> IoT &amp; Data</h4>
+                    <ul>
+                        <li>Développeur IoT</li>
+                        <li>Data analyst</li>
+                        <li>Ingénieur systèmes embarqués</li>
+                    </ul>
+                </div>
+                <div class="job-category">
+                    <h4><i class="fas fa-robot"></i> Industrie &amp; Robotique</h4>
+                    <ul>
+                        <li>Technicien en robotique</li>
+                        <li>Ingénieur automatisation</li>
+                        <li>Spécialiste usines connectées</li>
+                    </ul>
+                </div>
+                <div class="job-category">
+                    <h4><i class="fas fa-heartbeat"></i> Santé &amp; Mobilité</h4>
+                    <ul>
+                        <li>Spécialiste télémédecine</li>
+                        <li>Ingénieur véhicules autonomes</li>
+                        <li>Technicien équipements médicaux</li>
+                    </ul>
+                </div>
+                <div class="job-category">
+                    <h4><i class="fas fa-vr-cardboard"></i> Numérique &amp; Multimédia</h4>
+                    <ul>
+                        <li>Développeur VR/AR</li>
+                        <li>Spécialiste cloud gaming</li>
+                        <li>Concepteur applications mobiles</li>
+                    </ul>
+                </div>
+            </div>
+            <p style="margin-top:1.2rem;font-size:0.85rem;color:rgba(223,227,234,0.55);">Source : <a href="https://www.francetravail.fr/actualites/le-dossier/numerique-telecoms/numerique.html" target="_blank" rel="noopener" style="color:#9d6edd;">France Travail — Numérique &amp; Télécoms</a></p>
+        </div>
+
+        <div class="v-divider"></div>
+
+        <!-- Conclusion -->
+        <div class="v-section" data-aos="fade-up">
+            <div class="v-section-title">
+                <div class="v-section-title-icon"><i class="fas fa-flag-checkered"></i></div>
+                <div>
+                    <h2>Conclusion</h2>
+                    <p>Synthèse de la veille</p>
+                </div>
+            </div>
+            <div class="v-block">
+                <div class="v-quote">"La 5G apparaît comme une innovation technologique majeure qui transforme profondément la société humaine. Elle offre des opportunités importantes dans de nombreux domaines tels que la santé, les transports, l'industrie et la communication."</div>
+                <p>Toutefois, cette évolution s'accompagne de défis significatifs, notamment en matière de <strong style="color:#c4b5fd;">sécurité des données</strong>, d'impact environnemental et de risques d'inégalités numériques. Il est donc essentiel d'encadrer le développement de la 5G par des réglementations adaptées et une utilisation responsable afin de garantir que ses bénéfices profitent au plus grand nombre tout en limitant ses effets négatifs.</p>
+                <p>En tant que future professionnelle SISR, cette veille m'a permis de mieux comprendre les enjeux techniques, sociaux et économiques de la 5G, et d'anticiper les compétences qui seront nécessaires dans un environnement réseau en pleine mutation.</p>
+            </div>
+        </div>
+
     </div>
 
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
-    <script>
-        AOS.init({
-            offset: 0,
-            duration: 1000
-        });
-    </script>
-    <script src="script.js"></script>
-</body>
-</html>
-
-
-
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Veille Technologique - OSINT</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
-    <link rel="stylesheet" href="style.css">
-    <style>
-        body {
-            background: #000000;
-            min-height: 100vh;
-            overflow-x: hidden;
-        }
-
-        .content-container {
-            padding: 20px;
-            margin-top: 10vh;
-        }
-
-        .container {
-            position: relative;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-wrap: wrap;
-            padding: 50px 0;
-            gap: 40px;
-        }
-
-        .box {
-            position: relative;
-            height: 450px;
-            width: 300px;
-            background: #fff;
-            border-radius: 20px;
-            overflow: hidden;
-        }
-
-        .box::before {
-            content: "";
-            position: absolute;
-            inset: 0;
-            border-radius: 20px;
-            background: linear-gradient(45deg, #ff166f, #ffbdce);
-        }
-
-        .box::after {
-            content: "";
-            position: absolute;
-            inset: 0;
-            border-radius: 20px;
-            background: linear-gradient(45deg, #2c1177, #4c58ff);
-            filter: blur(16px);
-        }
-
-        .box .content {
-            padding: 30px;
-            position: absolute;
-            display: block;
-            inset: 4px;
-            border-radius: 16px;
-            background: rgba(0, 0, 0, 0.9);
-            z-index: 2;
-            color: white;
-            overflow-y: auto;
-        }
-
-        .box h2 {
-            color: #ff2079;
-            text-shadow: 0 0 10px #ff2079;
-            margin-bottom: 20px;
-            text-align: center;
-            font-size: 1.5em;
-        }
-
-        .box p {
-            font-size: 1em;
-            line-height: 1.5;
-            color: rgba(255, 255, 255, 0.8);
-        }
-
-        .box a {
-            display: inline-block;
-            margin-top: 15px;
-            padding: 10px 20px;
-            background: linear-gradient(45deg, #ff2079, #4c58ff);
-            color: white;
-            text-decoration: none;
-            border-radius: 5px;
-            transition: 0.3s ease;
-        }
-
-        .box a:hover {
-            background: linear-gradient(45deg, #4c58ff, #ff2079);
-            box-shadow: 0 0 10px #ff2079;
-        }
-    </style>
-</head>
-<body>
-    <!-- The video -->
-    <video autoplay muted loop id="myVideo">
-        <source src="blue.mp4" type="video/mp4">
-    </video>
-
-    <nav>
-        <div class="nav-container">
-            <div class="logo" data-aos="zoom-in" data-aos-duration="1500">
-                Esra <span>Atia</span>
-            </div>
-            <div class="links">
-                <div class="link" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="100"><a href="index.html">Accueil</a></div>
-                <div class="link" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="100"><a href="btssio.html">BTS SIO</a></div>
-                <div class="link" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="100"><a href="e5.html">Épreuve 5</a></div>
-                <div class="link" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="100"><a href="e6.html">Épreuve 6</a></div>
-                <div class="link" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="200"> <a href="profil.html">Profil</a></div>
-                <div class="link" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="300"><a href="projet.html">Projets</a></div>
-                <div class="link" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="400"><a href="veille.html">Veille</a></div>
-        </div>
-        <i class="fa-solid fa-bars hamburg" onclick="hamburg()"></i>
-    </div>
-        <div class="dropdown">
-            <div class="links">
-                <a href="index.html">Accueil</a>
-                <a href="btssio.html">BTS SIO</a>
-                <a href="e5.html">Épreuve 5 </a>
-                <a href="e6.html">Épreuve 6 </a>
-                <a href="profil=.html">Profil</a>
-                <a href="projet.html">Projets</a>
-                <a href="veille.html">Veille</a>
-                <i class="fa-solid fa-xmark cancel" onclick="cancel()"></i>
-            </div>
-        </div>
-    </nav>
-
-    <div class="content-container">
-        <div class="container">
-            <div class="box" data-aos="fade-right" data-aos-duration="1500">
-                <div class="content">
-                    <h2>Qu'est-ce que l'OSINT ?</h2>
-                    <p>L'OSINT (Open Source Intelligence) est une méthode de collecte d'informations à partir de sources publiques et ouvertes. Utilisée dans divers domaines comme la cybersécurité, le renseignement, et le journalisme, l'OSINT permet d'analyser des données accessibles à tous pour en tirer des conclusions stratégiques.</p>
-                    <a href="https://fr.wikipedia.org/wiki/Renseignement_d%27origine_sources_ouvertes" target="_blank">En savoir plus</a>
-                </div>
-            </div>
-
-            <div class="box" data-aos="fade-up" data-aos-duration="1500">
-                <div class="content">
-                    <h2>Mes outils d'OSINT</h2>
-                    <p>Pour ma veille technologique, j'utilise des outils comme Google Alertes, Maltego, et Shodan. Ces outils me permettent de surveiller les tendances, les vulnérabilités, et les actualités liées à la cybersécurité et à l'OSINT.</p>
-                    <a href="https://www.maltego.com/" target="_blank">Découvrir Maltego</a>
-                </div>
-            </div>
-
-            <div class="box" data-aos="fade-left" data-aos-duration="1500">
-                <div class="content">
-                    <h2>Articles sur l'OSINT</h2>
-                    <p>Voici une sélection d'articles que j'ai trouvés particulièrement intéressants sur l'OSINT. Ces articles couvrent des sujets comme les techniques de collecte de données, les outils modernes, et les cas d'utilisation dans la cybersécurité.</p>
-                    <a href="#articles">Voir les articles</a>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="content-container" id="articles">
-        <div class="container">
-            <div class="box" data-aos="fade-right" data-aos-duration="1500">
-                <div class="content">
-                    <h2>L'OSINT dans la cybersécurité</h2>
-                    <p>Cet article explore comment l'OSINT est utilisé pour identifier les menaces en ligne et protéger les systèmes informatiques. Il met en lumière des outils comme Shodan et les techniques de reconnaissance.</p>
-                    <a href="https://www.cyber.gov.au/acsc/view-all-content/publications/using-open-source-intelligence-osint-cyber-security" target="_blank">Lire l'article</a>
-                </div>
-            </div>
-
-            <div class="box" data-aos="fade-up" data-aos-duration="1500">
-                <div class="content">
-                    <h2>Les outils modernes d'OSINT</h2>
-                    <p>Découvrez les outils les plus récents utilisés dans l'OSINT, tels que Maltego, SpiderFoot, et Recon-ng. Cet article explique comment ces outils peuvent être utilisés pour collecter et analyser des données publiques.</p>
-                    <a href="https://www.sans.org/blog/osint-tools-for-penetration-testing/" target="_blank">Lire l'article</a>
-                </div>
-            </div>
-
-            <div class="box" data-aos="fade-left" data-aos-duration="1500">
-                <div class="content">
-                    <h2>OSINT et journalisme</h2>
-                    <p>Cet article examine comment les journalistes utilisent l'OSINT pour enquêter sur des sujets sensibles, vérifier des informations, et découvrir des histoires cachées. Un outil puissant pour la transparence et la vérité.</p>
-                    <a href="https://www.cjr.org/tow_center/osint-journalism.php" target="_blank">Lire l'article</a>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
-    <script>
-        AOS.init({
-            offset: 0,
-            duration: 1000
-        });
-    </script>
+    <script>AOS.init({ duration: 900, once: true, offset: 80, easing: 'ease-out-cubic' });</script>
     <script src="script.js"></script>
 </body>
 </html>

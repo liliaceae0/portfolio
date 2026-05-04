@@ -6,151 +6,109 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
     <link rel="stylesheet" href="style.css">
+    <title>Épreuve E5 : Production de services — Portfolio Esra Atia</title>
     <style>
-        body {
-            overflow-y: auto;
-            background-color: black;
-        }
+        html { scroll-behavior: smooth; }
+        body { overflow-y: auto; color: #dfe3ea; min-height: 100%; }
+        * { scrollbar-width: thin; scrollbar-color: #9d6edd rgba(255,255,255,0.04); }
+        *::-webkit-scrollbar { width: 7px; }
+        *::-webkit-scrollbar-track { background: rgba(255,255,255,0.03); }
+        *::-webkit-scrollbar-thumb { background: rgba(157,110,221,0.6); border-radius: 999px; }
+        *::-webkit-scrollbar-thumb:hover { background: #9d6edd; }
 
-        .e5-container {
-            color: white;
-            padding: 2rem;
-            margin-top: 2rem;
-            position: relative;
-            z-index: 1;
-        }
+        .e5-container { padding: 2rem; margin: 2rem auto 4rem; position: relative; z-index: 1; max-width: 1280px; }
 
-        .presentation {
-            text-align: center;
-            margin: 2rem auto;
-            max-width: 800px;
-            padding: 2rem;
-            background: rgba(0, 0, 0, 0.5);
-            backdrop-filter: blur(10px);
-            border-radius: 15px;
-            border: 1px solid rgba(255, 32, 121, 0.3);
-        }
+        .presentation { text-align: center; margin: 0 auto 3rem; max-width: 860px; padding: 2.6rem 2rem; background: rgba(10,8,22,0.78); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border-radius: 24px; border: 1px solid rgba(157,110,221,0.18); box-shadow: 0 24px 80px rgba(0,0,0,0.3); }
+        .presentation h1 { color: #fff; font-size: clamp(1.6rem,3.5vw,2.8rem); line-height: 1.1; margin-bottom: 1rem; font-weight: 700; }
+        .presentation p { font-size: 1rem; line-height: 1.8; color: rgba(223,227,234,0.78); }
 
-        .documents-section {
-            display: flex;
-            justify-content: center;
-            gap: 2rem;
-            margin: 4rem 0;
-            flex-wrap: wrap;
-        }
+        .documents-section { display: flex; justify-content: center; gap: 1.25rem; margin: 0 0 3.5rem; flex-wrap: wrap; }
+        .download-btn { padding: 0.9rem 1.75rem; background: rgba(157,110,221,0.12); color: white; border: 1px solid rgba(157,110,221,0.28); border-radius: 999px; cursor: pointer; transition: all 0.3s ease; font-weight: 600; text-decoration: none; display: inline-flex; align-items: center; gap: 0.65rem; font-size: 0.92rem; }
+        .download-btn:hover { background: rgba(157,110,221,0.24); border-color: rgba(157,110,221,0.5); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(157,110,221,0.16); }
 
-        .download-btn {
-            padding: 1rem 2rem;
-            background-color: #ff2079;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            font-weight: 600;
-            text-decoration: none;
-            display: inline-block;
-        }
+        .section-label { display: flex; align-items: center; gap: 1rem; margin: 3.5rem 0 1.75rem; }
+        .section-label::before, .section-label::after { content: ''; flex: 1; height: 1px; background: rgba(255,255,255,0.09); }
+        .section-label-text { font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.13em; color: rgba(255,255,255,0.45); white-space: nowrap; padding: 0 0.5rem; }
 
-        .download-btn:hover {
-            background-color: transparent;
-            border: 2px solid #ff2079;
-            box-shadow: 0 0 20px #ff2079;
-        }
+        .section-label--formation .section-label-text { color: rgba(45,212,191,0.75); }
+        .section-label--alternance .section-label-text { color: rgba(212,99,139,0.75); }
+        .section-label--perso .section-label-text { color: rgba(245,158,11,0.75); }
 
-        .cards-gallery {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            padding: 2rem;
-            margin-top: 4rem;
-        }
+        .cards-gallery { display: grid; grid-template-columns: repeat(2, minmax(300px,1fr)); gap: 1.75rem; }
+        .project-card { background: rgba(10,8,22,0.8); border-radius: 22px; padding: 1.85rem; border: 1px solid rgba(255,255,255,0.07); box-shadow: 0 16px 60px rgba(0,0,0,0.22); transition: transform 0.35s ease, border-color 0.35s ease, box-shadow 0.35s ease; display: flex; flex-direction: column; }
+        .project-card:hover { transform: translateY(-8px); border-color: rgba(157,110,221,0.28); box-shadow: 0 28px 80px rgba(157,110,221,0.12); }
 
-        .card {
-            background: rgba(0, 0, 0, 0.7);
-            border-radius: 15px;
-            padding: 2rem;
-            border: 1px solid rgba(255, 32, 121, 0.3);
-            transition: all 0.3s ease;
-            backdrop-filter: blur(5px);
-        }
+        .project-card--formation:hover { border-color: rgba(45,212,191,0.28); box-shadow: 0 28px 80px rgba(45,212,191,0.1); }
+        .project-card--formation .project-number { color: #99f6e4; }
+        .project-card--formation .project-location { color: #5eead4; }
+        .project-card--formation .project-competences .badge { background: rgba(45,212,191,0.1); border-color: rgba(45,212,191,0.2); color: #a7f3d0; }
+        .project-card--formation .project-link { border-color: rgba(45,212,191,0.3); background: rgba(45,212,191,0.1); }
+        .project-card--formation .project-link:hover { background: rgba(45,212,191,0.22); }
 
-        .card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 0 30px rgba(255, 32, 121, 0.5);
-        }
+        .project-card--alternance:hover { border-color: rgba(212,99,139,0.28); box-shadow: 0 28px 80px rgba(212,99,139,0.1); }
+        .project-card--alternance .project-number { color: #f0a8c0; }
+        .project-card--alternance .project-location { color: #f0a8c0; }
+        .project-card--alternance .project-competences .badge { background: rgba(212,99,139,0.1); border-color: rgba(212,99,139,0.2); color: #fecdd3; }
+        .project-card--alternance .project-link { border-color: rgba(212,99,139,0.3); background: rgba(212,99,139,0.1); }
+        .project-card--alternance .project-link:hover { background: rgba(212,99,139,0.22); }
 
-        .card h3 {
-            color: #ff2079;
-            margin-bottom: 1rem;
-            font-size: 1.5rem;
-        }
+        .project-card--perso:hover { border-color: rgba(245,158,11,0.28); box-shadow: 0 28px 80px rgba(245,158,11,0.1); }
+        .project-card--perso .project-number { color: #fde68a; }
+        .project-card--perso .project-location { color: #fcd34d; }
+        .project-card--perso .project-competences .badge { background: rgba(245,158,11,0.1); border-color: rgba(245,158,11,0.2); color: #fde68a; }
+        .project-card--perso .project-link { border-color: rgba(245,158,11,0.3); background: rgba(245,158,11,0.1); }
+        .project-card--perso .project-link:hover { background: rgba(245,158,11,0.22); }
 
-        .card p {
-            margin-bottom: 1.5rem;
-            line-height: 1.6;
-        }
+        .project-card-header { display: flex; justify-content: space-between; align-items: center; gap: 0.75rem; margin-bottom: 1.2rem; flex-wrap: wrap; }
+        .project-number { font-size: 0.78rem; font-weight: 700; color: #c4b5fd; letter-spacing: 0.05em; text-transform: uppercase; }
+        .project-location { font-size: 0.82rem; color: #a78bfa; }
+        .project-card-title { font-size: clamp(1.05rem,1.8vw,1.35rem); color: #ffffff; margin-bottom: 0.75rem; line-height: 1.35; font-weight: 600; }
+        .project-card-text { font-size: 0.93rem; line-height: 1.8; color: rgba(223,227,234,0.72); margin-bottom: 1.25rem; flex: 1; }
+        .project-tags, .project-competences { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1.1rem; }
+        .tag, .badge { display: inline-flex; align-items: center; padding: 0.38rem 0.8rem; border-radius: 999px; font-size: 0.75rem; border: 1px solid rgba(255,255,255,0.08); background: rgba(255,255,255,0.04); color: rgba(223,227,234,0.85); }
+        .project-competences .badge { background: rgba(157,110,221,0.1); border-color: rgba(157,110,221,0.2); color: #ddd6fe; }
+        .project-footer { margin-top: auto; padding-top: 0.5rem; }
+        .project-link { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.75rem 1.2rem; border-radius: 999px; border: 1px solid rgba(157,110,221,0.3); background: rgba(157,110,221,0.1); color: #fff; text-decoration: none; font-weight: 600; font-size: 0.88rem; transition: all 0.25s ease; }
+        .project-link:hover { background: rgba(157,110,221,0.22); transform: translateX(3px); }
 
-        .card-btn {
-            padding: 0.8rem 1.5rem;
-            background-color: #c832ff;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            text-decoration: none;
-            display: inline-block;
-        }
+        .year-badge { display: inline-flex; align-items: center; gap: 0.35rem; padding: 0.28rem 0.65rem; border-radius: 999px; font-size: 0.68rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.07em; margin-bottom: 0.75rem; }
+        .year-badge--1 { background: rgba(99,179,237,0.12); color: #90cdf4; border: 1px solid rgba(99,179,237,0.22); }
+        .year-badge--2 { background: rgba(45,212,191,0.12); color: #81e6d9; border: 1px solid rgba(45,212,191,0.22); }
 
-        .card-btn:hover {
-            background-color: transparent;
-            border: 2px solid #c832ff;
-            box-shadow: 0 0 20px #c832ff;
-        }
+        .jury-notice { display: flex; align-items: center; gap: 0.75rem; background: rgba(45,212,191,0.06); border: 1px solid rgba(45,212,191,0.18); border-radius: 14px; padding: 0.85rem 1.2rem; margin-bottom: 1.5rem; font-size: 0.85rem; color: rgba(167,243,208,0.9); }
+        .jury-notice i { color: #2dd4bf; flex-shrink: 0; }
 
-        @media (max-width: 768px) {
-            .documents-section {
-                flex-direction: column;
-                align-items: center;
-            }
-            
-            .cards-gallery {
-                grid-template-columns: 1fr;
-            }
-        }
+        @media (max-width: 960px) { .cards-gallery { grid-template-columns: 1fr; } }
+        @media (max-width: 600px) { .presentation { padding: 1.75rem 1.25rem; } .section-label-text { font-size: 0.68rem; } }
     </style>
-    <title>Épreuve E5 - Portfolio</title>
 </head>
 <body>
-    <video autoplay muted loop id="myVideo">
-        <source src="blue.mp4" type="video/mp4">
-    </video>
+    <div class="bg-animation">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+        <div class="blob blob-3"></div>
+        <div class="blob blob-4"></div>
+    </div>
 
     <nav>
         <div class="nav-container">
-            <div class="logo" data-aos="zoom-in" data-aos-duration="1500">
-                Esra <span>Atia</span>
-            </div>
+            <div class="logo" data-aos="zoom-in" data-aos-duration="1500">Esra <span>Atia</span></div>
             <div class="links">
                 <div class="link" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="100"><a href="index.html">Accueil</a></div>
-                <div class="link" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="100"><a href="btssio.html">BTS SIO</a></div>
-                <div class="link" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="100"><a href="e5.html">Épreuve 5</a></div>
-                <div class="link" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="100"><a href="e6.html">Épreuve 6</a></div>
-                <div class="link" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="200"> <a href="profil.html">Profil</a></div>
-                <div class="link" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="300"><a href="projet.html">Projets</a></div>
+                <div class="link" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="150"><a href="btssio.html">BTS SIO</a></div>
+                <div class="link" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="200"><a href="e5.html">Épreuve 5</a></div>
+                <div class="link" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="300"><a href="profil.html">Profil</a></div>
                 <div class="link" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="400"><a href="veille.html">Veille</a></div>
+                <div class="link" data-aos="fade-up" data-aos-duration="1500" data-aos-delay="500"><a href="contact.html">Contact</a></div>
+            </div>
+            <i class="fa-solid fa-bars hamburg" onclick="hamburg()"></i>
         </div>
-        <i class="fa-solid fa-bars hamburg" onclick="hamburg()"></i>
-    </div>
         <div class="dropdown">
             <div class="links">
                 <a href="index.html">Accueil</a>
                 <a href="btssio.html">BTS SIO</a>
-                <a href="e5.html">Épreuve 5 </a>
-                <a href="e6.html">Épreuve 6 </a>
-                <a href="profil=.html">Profil</a>
-                <a href="projet.html">Projets</a>
+                <a href="e5.html">Épreuve 5</a>
+                <a href="profil.html">Profil</a>
                 <a href="veille.html">Veille</a>
                 <i class="fa-solid fa-xmark cancel" onclick="cancel()"></i>
             </div>
@@ -158,79 +116,841 @@
     </nav>
 
     <div class="e5-container">
-        <div class="presentation" data-aos="fade-up" data-aos-duration="1500">
-            <h1>Épreuve E5 - Production et fourniture de services informatiques</h1>
-            <p>L'épreuve E5 évalue les compétences acquises dans le cadre des activités de production et de fourniture de services informatiques. Elle permet de démontrer la maîtrise des processus, des démarches et des outils nécessaires à la gestion et à la production de services.</p>
+
+        <div class="presentation" data-aos="fade-up" data-aos-duration="1200">
+            <h1>Épreuve E5 : Production et fourniture de services informatiques</h1>
+            <p>Cette page regroupe toutes mes réalisations dans le cadre de l'épreuve E5 du BTS SIO. Vous y trouverez mes travaux pratiques en formation, mes réalisations lors de mon stage et de mon alternance, ainsi que mes projets personnels. Chaque fiche détaille le contexte, les étapes réalisées et les compétences mobilisées.</p>
         </div>
 
         <div class="documents-section">
-            <a href="tab.pdf" class="download-btn" data-aos="fade-right" data-aos-duration="1500">
+            <a href="tab.pdf" class="download-btn" data-aos="fade-right" data-aos-duration="1000">
                 <i class="fas fa-download"></i> Tableau des compétences
             </a>
-            <a href="BTSSIO.png" class="download-btn" data-aos="fade-left" data-aos-duration="1500">
+            <a href="BTSSIO.png" class="download-btn" data-aos="fade-left" data-aos-duration="1000">
                 <i class="fas fa-download"></i> Modalités d'épreuve
             </a>
         </div>
 
-        <div class="cards-gallery">
-            <div class="card" data-aos="flip-left" data-aos-duration="1500">
-                <h3>Administration de serveurs ESXi et gestion d’infrastructure virtuelle</h3>
-                <p>
-                    Mise en place d’un environnement virtualisé avec VMware ESXi, comprenant la configuration de trois banques de données (plateforme1, plateforme2, plateforme3) pour organiser les machines virtuelles (VM) et leurs ressources.
-                    Création de groupes de ports réseaux (vSwitch) : glan_server, glan_equipe, glan_wifi, et glandmz, permettant une segmentation réseau adaptée aux besoins fonctionnels des VMs.
-                    Gestion des droits utilisateurs : création de trois comptes utilisateurs avec accès restreint à leurs plateformes respectives via des permissions spécifiques.
-                    Déploiement d’un environnement multi-VM, assurant l’isolation et la gestion des rôles via une infrastructure définie et cloisonnée.</p>
-                <a href="tp-4-virtualisation-esxi-1.pdf" class="card-btn">
-                    <i class="fas fa-download"></i> Télécharger
-                </a>
-            </div>
-
-            <div class="card" data-aos="flip-left" data-aos-duration="1500" data-aos-delay="200">
-                <h3>Création et administration Active Directory avec Windows Server 2022</h3>
-                <p>Déploiement d’une infrastructure Active Directory (AD) dans un domaine principal sitka.local, avec configuration de Hermès, le premier contrôleur de domaine (DC), assigné aux rôles FSMO essentiels : PDC, RID, Infrastructure et Schéma.
-                    Configuration d’un second contrôleur de domaine nommé Neptune, responsable des permissions d’approbation inter-domaines, et création d’un sous-domaine enfant nommé IT sous Neptune pour une hiérarchie AD avancée.
-                    Intégration et gestion des comptes utilisateurs, postes clients, et serveurs au sein de l’AD.
-                    Mise en place de stratégies de groupe (GPO) pour sécuriser et standardiser les configurations au sein des différents LAN.</p>
-                <a href="Procédure AD.docx" class="card-btn">
-                    <i class="fas fa-download"></i> Télécharger
-                </a>
-            </div>
-
-            <div class="card" data-aos="flip-left" data-aos-duration="1500" data-aos-delay="400">
-                <h3>Implémentation et gestion de services réseau</h3>
-                <p>Serveur DHCP : Configuration d’un serveur DHCP avec deux étendues distinctes :</br></br>
-
-                    LAN_Server : attribue dynamiquement des IP aux équipements du réseau serveur.</br>
-                    LAN_Equipe : gère les adresses des postes de travail de l’équipe.</br>
-                    Routage réseau avec pfSense :</br></br>
-                    
-                    Mise en place d’un routeur pfSense pour assurer le routage et l’interconnexion des sous-réseaux LAN_Equipe, LAN_Server, LAN_Wifi, et LAN_DMZ.
-                    Configuration de règles de pare-feu pour sécuriser les échanges entre les différents LAN.
-                    Gestion des interfaces réseau : Configuration des cartes réseau des VMs pour une compatibilité optimale avec les groupes de ports définis sur ESXi.</p>
-                <a href="DHCP-failover.docx" class="card-btn">
-                    <i class="fas fa-download"></i> Télécharger
-                </a>
-            </div>
-
-            <div class="card" data-aos="flip-left" data-aos-duration="1500">
-                <h3> Sécurité informatique et récupération de comptes</h3>
-                <p>
-                    Utilisation de Kali Linux pour effectuer des audits de sécurité :</br></br>
-
-                Scan des ports ouverts avec Nmap pour identifier les vulnérabilités sur les équipements réseau. </br>
-                Exploitation de failles pour démontrer la récupération d’un compte administrateur sur un domaine via des outils de forensics et de post-exploitation.</br>
-                Génération et gestion des clés publiques et privées pour assurer une communication sécurisée entre machines physiques et virtuelles via SSH.</p>
-                <a href="Chiffrer les données.docx" class="card-btn">
-                    <i class="fas fa-download"></i> Télécharger
-                </a>
-            </div>
+        <!-- ─── Formation 1ère Année ─── -->
+        <div class="section-label section-label--formation" data-aos="fade-up">
+            <span class="section-label-text"><i class="fas fa-graduation-cap" style="margin-right:6px;"></i>Réalisations en Formation, 1ère Année BTS SIO (2024-2025)</span>
         </div>
+
+        <div class="jury-notice" data-aos="fade-up">
+            <i class="fas fa-info-circle"></i>
+            Ces réalisations ont été effectuées lors de ma <strong>première année de BTS SIO SISR</strong> (2024-2025), dans le cadre des travaux pratiques réalisés à l'EFREI Villejuif.
+        </div>
+
+        <div class="cards-gallery">
+            <article class="project-card project-card--formation" data-aos="fade-up" data-aos-duration="900">
+                <div class="year-badge year-badge--1"><i class="fas fa-star" style="font-size:0.6rem;"></i> 1ère Année</div>
+                <div class="project-card-header">
+                    <span class="project-number">FORM-1 #1</span>
+                    <span class="project-location"><i class="fas fa-university" style="font-size:0.75rem;margin-right:4px;"></i>EFREI Villejuif</span>
+                </div>
+                <h3 class="project-card-title">Projet El Gato, site vitrine fullstack (équipe de 3)</h3>
+                <p class="project-card-text">Développement d'un site web complet pour une fausse entreprise de pâtisseries : API backend PHP, base MySQL, catalogue dynamique, blog admin et formulaire de contact.</p>
+                <div class="project-tags">
+                    <span class="tag">HTML/CSS/JS</span>
+                    <span class="tag">PHP</span>
+                    <span class="tag">MySQL</span>
+                    <span class="tag">API REST</span>
+                    <span class="tag">GitHub</span>
+                </div>
+                <div class="project-competences">
+                    <span class="badge">C12</span>
+                    <span class="badge">C17</span>
+                </div>
+                <div class="project-footer">
+                    <a href="e5-form-1.html" class="project-link"><i class="fas fa-arrow-right"></i> Voir la fiche détaillée</a>
+                </div>
+            </article>
+
+            <article class="project-card project-card--formation" data-aos="fade-up" data-aos-duration="900" data-aos-delay="80">
+                <div class="year-badge year-badge--1"><i class="fas fa-star" style="font-size:0.6rem;"></i> 1ère Année</div>
+                <div class="project-card-header">
+                    <span class="project-number">FORM-1 #2</span>
+                    <span class="project-location"><i class="fas fa-university" style="font-size:0.75rem;margin-right:4px;"></i>EFREI Villejuif</span>
+                </div>
+                <h3 class="project-card-title">TP DHCP Failover : haute disponibilité du service DHCP</h3>
+                <p class="project-card-text">Configuration de deux serveurs DHCP en mode failover (partage 80/20 + bascule automatique). Test d'extinction du serveur principal pour valider la continuité du service.</p>
+                <div class="project-tags">
+                    <span class="tag">DHCP</span>
+                    <span class="tag">Failover</span>
+                    <span class="tag">Windows Server</span>
+                    <span class="tag">Haute disponibilité</span>
+                </div>
+                <div class="project-competences">
+                    <span class="badge">C4</span>
+                </div>
+                <div class="project-footer">
+                    <a href="e5-form-2.html" class="project-link"><i class="fas fa-arrow-right"></i> Voir la fiche détaillée</a>
+                </div>
+            </article>
+
+            <article class="project-card project-card--formation" data-aos="fade-up" data-aos-duration="900" data-aos-delay="160">
+                <div class="year-badge year-badge--1"><i class="fas fa-star" style="font-size:0.6rem;"></i> 1ère Année</div>
+                <div class="project-card-header">
+                    <span class="project-number">FORM-1 #3</span>
+                    <span class="project-location"><i class="fas fa-university" style="font-size:0.75rem;margin-right:4px;"></i>EFREI Villejuif</span>
+                </div>
+                <h3 class="project-card-title">Déploiement Zimbra : serveur de messagerie collaborative</h3>
+                <p class="project-card-text">Installation et configuration de Zimbra sur Linux : domaines, comptes, paramétrage DNS (MX, SPF, DKIM), tests d'envoi/réception et rédaction de la documentation.</p>
+                <div class="project-tags">
+                    <span class="tag">Zimbra</span>
+                    <span class="tag">Linux</span>
+                    <span class="tag">DNS / MX</span>
+                    <span class="tag">SPF / DKIM</span>
+                </div>
+                <div class="project-competences">
+                    <span class="badge">C8</span>
+                    <span class="badge">C9</span>
+                    <span class="badge">C17</span>
+                </div>
+                <div class="project-footer">
+                    <a href="e5-form-3.html" class="project-link"><i class="fas fa-arrow-right"></i> Voir la fiche détaillée</a>
+                </div>
+            </article>
+
+            <article class="project-card project-card--formation" data-aos="fade-up" data-aos-duration="900" data-aos-delay="240">
+                <div class="year-badge year-badge--1"><i class="fas fa-star" style="font-size:0.6rem;"></i> 1ère Année</div>
+                <div class="project-card-header">
+                    <span class="project-number">FORM-1 #4</span>
+                    <span class="project-location"><i class="fas fa-university" style="font-size:0.75rem;margin-right:4px;"></i>EFREI Villejuif</span>
+                </div>
+                <h3 class="project-card-title">TP Suricata et Snort : IDS/IPS et détection d'intrusion</h3>
+                <p class="project-card-text">Installation et configuration de Suricata et Snort sur VM Linux, règles de détection, génération d'alertes via Nmap, analyse des logs et rapport comparatif des deux outils.</p>
+                <div class="project-tags">
+                    <span class="tag">Suricata</span>
+                    <span class="tag">Snort</span>
+                    <span class="tag">IDS/IPS</span>
+                    <span class="tag">Nmap</span>
+                </div>
+                <div class="project-competences">
+                    <span class="badge">C6</span>
+                </div>
+                <div class="project-footer">
+                    <a href="e5-form-4.html" class="project-link"><i class="fas fa-arrow-right"></i> Voir la fiche détaillée</a>
+                </div>
+            </article>
+
+            <article class="project-card project-card--formation" data-aos="fade-up" data-aos-duration="900" data-aos-delay="320">
+                <div class="year-badge year-badge--1"><i class="fas fa-star" style="font-size:0.6rem;"></i> 1ère Année</div>
+                <div class="project-card-header">
+                    <span class="project-number">FORM-1 #5</span>
+                    <span class="project-location"><i class="fas fa-university" style="font-size:0.75rem;margin-right:4px;"></i>EFREI Villejuif</span>
+                </div>
+                <h3 class="project-card-title">TP pfSense : pare-feu, filtrage et segmentation réseau</h3>
+                <p class="project-card-text">Installation de pfSense sur VM, configuration des interfaces WAN/LAN/DMZ, règles de filtrage par port et protocole, NAT, et tests de validation depuis les VMs clientes.</p>
+                <div class="project-tags">
+                    <span class="tag">pfSense</span>
+                    <span class="tag">Firewall</span>
+                    <span class="tag">NAT</span>
+                    <span class="tag">VLAN</span>
+                    <span class="tag">DMZ</span>
+                </div>
+                <div class="project-competences">
+                    <span class="badge">C6</span>
+                </div>
+                <div class="project-footer">
+                    <a href="e5-form-5.html" class="project-link"><i class="fas fa-arrow-right"></i> Voir la fiche détaillée</a>
+                </div>
+            </article>
+
+            <article class="project-card project-card--formation" data-aos="fade-up" data-aos-duration="900" data-aos-delay="400">
+                <div class="year-badge year-badge--1"><i class="fas fa-star" style="font-size:0.6rem;"></i> 1ère Année</div>
+                <div class="project-card-header">
+                    <span class="project-number">FORM-1 #6</span>
+                    <span class="project-location"><i class="fas fa-university" style="font-size:0.75rem;margin-right:4px;"></i>EFREI Villejuif</span>
+                </div>
+                <h3 class="project-card-title">TP HAProxy : load balancing et terminaison SSL</h3>
+                <p class="project-card-text">Configuration de HAProxy : frontend/backend avec round-robin, test de bascule automatique après extinction d'un serveur, terminaison SSL avec certificat auto-signé.</p>
+                <div class="project-tags">
+                    <span class="tag">HAProxy</span>
+                    <span class="tag">Load Balancing</span>
+                    <span class="tag">SSL/TLS</span>
+                    <span class="tag">Apache/Nginx</span>
+                </div>
+                <div class="project-competences">
+                    <span class="badge">C4</span>
+                    <span class="badge">C6</span>
+                </div>
+                <div class="project-footer">
+                    <a href="e5-form-6.html" class="project-link"><i class="fas fa-arrow-right"></i> Voir la fiche détaillée</a>
+                </div>
+            </article>
+
+            <article class="project-card project-card--formation" data-aos="fade-up" data-aos-duration="900" data-aos-delay="480">
+                <div class="year-badge year-badge--1"><i class="fas fa-star" style="font-size:0.6rem;"></i> 1ère Année</div>
+                <div class="project-card-header">
+                    <span class="project-number">FORM-1 #7</span>
+                    <span class="project-location"><i class="fas fa-university" style="font-size:0.75rem;margin-right:4px;"></i>EFREI Villejuif</span>
+                </div>
+                <h3 class="project-card-title">TP Zabbix : supervision de serveurs et alertes</h3>
+                <p class="project-card-text">Installation du serveur Zabbix et des agents, configuration des hôtes et triggers (CPU&gt;80%, service down), simulation d'une surcharge et vérification des alertes.</p>
+                <div class="project-tags">
+                    <span class="tag">Zabbix</span>
+                    <span class="tag">Linux</span>
+                    <span class="tag">MySQL</span>
+                    <span class="tag">Supervision</span>
+                </div>
+                <div class="project-competences">
+                    <span class="badge">C6</span>
+                </div>
+                <div class="project-footer">
+                    <a href="e5-form-7.html" class="project-link"><i class="fas fa-arrow-right"></i> Voir la fiche détaillée</a>
+                </div>
+            </article>
+
+            <article class="project-card project-card--formation" data-aos="fade-up" data-aos-duration="900" data-aos-delay="560">
+                <div class="year-badge year-badge--1"><i class="fas fa-star" style="font-size:0.6rem;"></i> 1ère Année</div>
+                <div class="project-card-header">
+                    <span class="project-number">FORM-1 #8</span>
+                    <span class="project-location"><i class="fas fa-university" style="font-size:0.75rem;margin-right:4px;"></i>EFREI Villejuif</span>
+                </div>
+                <h3 class="project-card-title">TP Nagios : supervision et notification d'incidents</h3>
+                <p class="project-card-text">Installation de Nagios Core, configuration des hôtes et services supervisés via plugins, notifications email et comparaison des forces/faiblesses avec Zabbix.</p>
+                <div class="project-tags">
+                    <span class="tag">Nagios</span>
+                    <span class="tag">Linux</span>
+                    <span class="tag">NRPE</span>
+                    <span class="tag">SNMP</span>
+                </div>
+                <div class="project-competences">
+                    <span class="badge">C6</span>
+                </div>
+                <div class="project-footer">
+                    <a href="e5-form-8.html" class="project-link"><i class="fas fa-arrow-right"></i> Voir la fiche détaillée</a>
+                </div>
+            </article>
+
+
+            <article class="project-card project-card--formation" data-aos="fade-up" data-aos-duration="900" data-aos-delay="720">
+                <div class="year-badge year-badge--1"><i class="fas fa-star" style="font-size:0.6rem;"></i> 1ère Année</div>
+                <div class="project-card-header">
+                    <span class="project-number">FORM-1 #9</span>
+                    <span class="project-location"><i class="fas fa-university" style="font-size:0.75rem;margin-right:4px;"></i>EFREI Villejuif</span>
+                </div>
+                <h3 class="project-card-title">TP Apache et Nginx : administration de serveurs web</h3>
+                <p class="project-card-text">Installation et configuration d'Apache (VirtualHosts, PHP-FPM) et Nginx, hébergement de sites statiques et PHP, sécurisation HTTPS, comparaison des deux serveurs.</p>
+                <div class="project-tags">
+                    <span class="tag">Apache</span>
+                    <span class="tag">Nginx</span>
+                    <span class="tag">Linux</span>
+                    <span class="tag">VirtualHost</span>
+                </div>
+                <div class="project-competences">
+                    <span class="badge">C8</span>
+                    <span class="badge">C9</span>
+                    <span class="badge">C17</span>
+                </div>
+                <div class="project-footer">
+                    <a href="e5-form-10.html" class="project-link"><i class="fas fa-arrow-right"></i> Voir la fiche détaillée</a>
+                </div>
+            </article>
+        </div>
+
+        <!-- ─── Formation 2ème Année ─── -->
+        <div class="section-label section-label--formation" data-aos="fade-up">
+            <span class="section-label-text"><i class="fas fa-graduation-cap" style="margin-right:6px;"></i>Réalisations en Formation, 2ème Année BTS SIO (sept. 2025 – juin 2026)</span>
+        </div>
+
+        <div class="jury-notice" data-aos="fade-up">
+            <i class="fas fa-info-circle"></i>
+            Ces réalisations ont été effectuées lors de ma <strong>deuxième année de BTS SIO SISR</strong> (sept. 2025 – juin 2026), dans le cadre des travaux pratiques et projets encadrés à l'EFREI Villejuif.
+        </div>
+
+        <div class="cards-gallery">
+            <article class="project-card project-card--formation" data-aos="fade-up" data-aos-duration="900">
+                <div class="year-badge year-badge--2"><i class="fas fa-star" style="font-size:0.6rem;"></i> 2ème Année</div>
+                <div class="project-card-header">
+                    <span class="project-number">FORM-2 #1</span>
+                    <span class="project-location"><i class="fas fa-university" style="font-size:0.75rem;margin-right:4px;"></i>EFREI Villejuif</span>
+                </div>
+                <h3 class="project-card-title">TP ESXi : administration VMware et infrastructure virtuelle</h3>
+                <p class="project-card-text">Mise en place d'une infrastructure VMware ESXi, création de banques de données, groupes de ports réseau et comptes pour cloisonner les plateformes et sécuriser les accès.</p>
+                <div class="project-tags">
+                    <span class="tag">VMware ESXi</span>
+                    <span class="tag">vSwitch</span>
+                    <span class="tag">DMZ</span>
+                    <span class="tag">Virtualisation</span>
+                </div>
+                <div class="project-competences">
+                    <span class="badge">C1</span>
+                    <span class="badge">C3</span>
+                </div>
+                <div class="project-footer">
+                    <a href="e5-detail-1.html" class="project-link"><i class="fas fa-arrow-right"></i> Voir la fiche détaillée</a>
+                </div>
+            </article>
+
+            <article class="project-card project-card--formation" data-aos="fade-up" data-aos-duration="900" data-aos-delay="80">
+                <div class="year-badge year-badge--2"><i class="fas fa-star" style="font-size:0.6rem;"></i> 2ème Année</div>
+                <div class="project-card-header">
+                    <span class="project-number">FORM-2 #2</span>
+                    <span class="project-location"><i class="fas fa-university" style="font-size:0.75rem;margin-right:4px;"></i>EFREI Villejuif</span>
+                </div>
+                <h3 class="project-card-title">TP Active Directory : domaine Windows Server 2022</h3>
+                <p class="project-card-text">Déploiement d'un domaine sitka.local avec deux contrôleurs (rôles FSMO), sous-domaine IT, GPO de sécurité et gestion des utilisateurs et groupes.</p>
+                <div class="project-tags">
+                    <span class="tag">Windows Server 2022</span>
+                    <span class="tag">Active Directory</span>
+                    <span class="tag">GPO</span>
+                    <span class="tag">FSMO</span>
+                </div>
+                <div class="project-competences">
+                    <span class="badge">C3</span>
+                </div>
+                <div class="project-footer">
+                    <a href="e5-detail-2.html" class="project-link"><i class="fas fa-arrow-right"></i> Voir la fiche détaillée</a>
+                </div>
+            </article>
+
+            <article class="project-card project-card--formation" data-aos="fade-up" data-aos-duration="900" data-aos-delay="160">
+                <div class="year-badge year-badge--2"><i class="fas fa-star" style="font-size:0.6rem;"></i> 2ème Année</div>
+                <div class="project-card-header">
+                    <span class="project-number">FORM-2 #3</span>
+                    <span class="project-location"><i class="fas fa-university" style="font-size:0.75rem;margin-right:4px;"></i>EFREI Villejuif</span>
+                </div>
+                <h3 class="project-card-title">TP Services réseau : DHCP multi-étendues et pfSense</h3>
+                <p class="project-card-text">Configuration d'un serveur DHCP multi-étendues, routage inter-LAN avec pfSense, règles de pare-feu et topologie réseau segmentée et sécurisée.</p>
+                <div class="project-tags">
+                    <span class="tag">DHCP</span>
+                    <span class="tag">pfSense</span>
+                    <span class="tag">Routage</span>
+                    <span class="tag">Sécurité réseau</span>
+                </div>
+                <div class="project-competences">
+                    <span class="badge">C4</span>
+                    <span class="badge">C6</span>
+                </div>
+                <div class="project-footer">
+                    <a href="e5-detail-3.html" class="project-link"><i class="fas fa-arrow-right"></i> Voir la fiche détaillée</a>
+                </div>
+            </article>
+
+            <article class="project-card project-card--formation" data-aos="fade-up" data-aos-duration="900" data-aos-delay="240">
+                <div class="year-badge year-badge--2"><i class="fas fa-star" style="font-size:0.6rem;"></i> 2ème Année</div>
+                <div class="project-card-header">
+                    <span class="project-number">FORM-2 #4</span>
+                    <span class="project-location"><i class="fas fa-university" style="font-size:0.75rem;margin-right:4px;"></i>EFREI Villejuif</span>
+                </div>
+                <h3 class="project-card-title">TP Sécurité : Kali Linux, Nmap et récupération de comptes</h3>
+                <p class="project-card-text">Audit de sécurité Kali Linux, scans Nmap, exploitation de failles, récupération de comptes et gestion de clés SSH pour sécuriser les services.</p>
+                <div class="project-tags">
+                    <span class="tag">Kali Linux</span>
+                    <span class="tag">Nmap</span>
+                    <span class="tag">Forensics</span>
+                    <span class="tag">SSH</span>
+                </div>
+                <div class="project-competences">
+                    <span class="badge">C6</span>
+                </div>
+                <div class="project-footer">
+                    <a href="e5-detail-4.html" class="project-link"><i class="fas fa-arrow-right"></i> Voir la fiche détaillée</a>
+                </div>
+            </article>
+
+            <article class="project-card project-card--formation" data-aos="fade-up" data-aos-duration="900" data-aos-delay="320">
+                <div class="year-badge year-badge--2"><i class="fas fa-star" style="font-size:0.6rem;"></i> 2ème Année</div>
+                <div class="project-card-header">
+                    <span class="project-number">FORM-2 #5</span>
+                    <span class="project-location"><i class="fas fa-university" style="font-size:0.75rem;margin-right:4px;"></i>EFREI Villejuif</span>
+                </div>
+                <h3 class="project-card-title">TP GLPI : inventaire du parc et ticketing ITIL</h3>
+                <p class="project-card-text">Administration complète de GLPI : création des entités, saisie des équipements, gestion des profils (Admin, Technicien, Self-service), cycle de vie des tickets et règles d'affectation.</p>
+                <div class="project-tags">
+                    <span class="tag">GLPI</span>
+                    <span class="tag">MySQL</span>
+                    <span class="tag">Apache</span>
+                    <span class="tag">ITIL</span>
+                </div>
+                <div class="project-competences">
+                    <span class="badge">C1</span>
+                    <span class="badge">C7</span>
+                </div>
+                <div class="project-footer">
+                    <a href="e5-form-11.html" class="project-link"><i class="fas fa-arrow-right"></i> Voir la fiche détaillée</a>
+                </div>
+            </article>
+
+            <article class="project-card project-card--formation" data-aos="fade-up" data-aos-duration="900" data-aos-delay="400">
+                <div class="year-badge year-badge--2"><i class="fas fa-star" style="font-size:0.6rem;"></i> 2ème Année</div>
+                <div class="project-card-header">
+                    <span class="project-number">FORM-2 #6</span>
+                    <span class="project-location"><i class="fas fa-university" style="font-size:0.75rem;margin-right:4px;"></i>EFREI Villejuif</span>
+                </div>
+                <h3 class="project-card-title">TP ITIL et ISO 27001 : mise en conformité (cas TechNova)</h3>
+                <p class="project-card-text">Analyse des non-conformités ITIL et ISO 27001 d'une entreprise fictive, rédaction de procédures correctives (gestion incidents, accès, sauvegardes) et plan d'amélioration.</p>
+                <div class="project-tags">
+                    <span class="tag">ITIL</span>
+                    <span class="tag">ISO 27001</span>
+                    <span class="tag">Procédures</span>
+                    <span class="tag">Conformité</span>
+                </div>
+                <div class="project-competences">
+                    <span class="badge">C2</span>
+                </div>
+                <div class="project-footer">
+                    <a href="e5-form-12.html" class="project-link"><i class="fas fa-arrow-right"></i> Voir la fiche détaillée</a>
+                </div>
+            </article>
+
+            <article class="project-card project-card--formation" data-aos="fade-up" data-aos-duration="900" data-aos-delay="480">
+                <div class="year-badge year-badge--2"><i class="fas fa-star" style="font-size:0.6rem;"></i> 2ème Année</div>
+                <div class="project-card-header">
+                    <span class="project-number">FORM-2 #7</span>
+                    <span class="project-location"><i class="fas fa-university" style="font-size:0.75rem;margin-right:4px;"></i>EFREI Villejuif</span>
+                </div>
+                <h3 class="project-card-title">TP Wazuh : SIEM open source et détection de menaces</h3>
+                <p class="project-card-text">Déploiement de l'architecture Wazuh (manager, indexer, dashboard), installation d'agents, configuration des règles de détection et dashboards Kibana personnalisés.</p>
+                <div class="project-tags">
+                    <span class="tag">Wazuh</span>
+                    <span class="tag">Elasticsearch</span>
+                    <span class="tag">Kibana</span>
+                    <span class="tag">SIEM</span>
+                </div>
+                <div class="project-competences">
+                    <span class="badge">C6</span>
+                </div>
+                <div class="project-footer">
+                    <a href="e5-form-13.html" class="project-link"><i class="fas fa-arrow-right"></i> Voir la fiche détaillée</a>
+                </div>
+            </article>
+
+            <article class="project-card project-card--formation" data-aos="fade-up" data-aos-duration="900" data-aos-delay="560">
+                <div class="year-badge year-badge--2"><i class="fas fa-star" style="font-size:0.6rem;"></i> 2ème Année</div>
+                <div class="project-card-header">
+                    <span class="project-number">FORM-2 #8</span>
+                    <span class="project-location"><i class="fas fa-university" style="font-size:0.75rem;margin-right:4px;"></i>EFREI Villejuif</span>
+                </div>
+                <h3 class="project-card-title">TP FreeRADIUS : authentification centralisée 802.1x</h3>
+                <p class="project-card-text">Installation de FreeRADIUS sur VM Linux, configuration des clients RADIUS (AP, switch), tests d'authentification avec radtest et vérification des rejets/acceptations.</p>
+                <div class="project-tags">
+                    <span class="tag">FreeRADIUS</span>
+                    <span class="tag">802.1x</span>
+                    <span class="tag">Linux</span>
+                    <span class="tag">AAA</span>
+                </div>
+                <div class="project-competences">
+                    <span class="badge">C6</span>
+                </div>
+                <div class="project-footer">
+                    <a href="e5-form-14.html" class="project-link"><i class="fas fa-arrow-right"></i> Voir la fiche détaillée</a>
+                </div>
+            </article>
+
+            <article class="project-card project-card--formation" data-aos="fade-up" data-aos-duration="900" data-aos-delay="640">
+                <div class="year-badge year-badge--2"><i class="fas fa-star" style="font-size:0.6rem;"></i> 2ème Année</div>
+                <div class="project-card-header">
+                    <span class="project-number">FORM-2 #9</span>
+                    <span class="project-location"><i class="fas fa-university" style="font-size:0.75rem;margin-right:4px;"></i>EFREI Villejuif</span>
+                </div>
+                <h3 class="project-card-title">Hackathon : community management et référencement SEO</h3>
+                <p class="project-card-text">Création d'une entreprise fictive de A à Z : charte graphique, calendrier éditorial sur les réseaux, SEO on-page/off-page, Google Analytics et rapport de performance.</p>
+                <div class="project-tags">
+                    <span class="tag">LinkedIn</span>
+                    <span class="tag">SEO</span>
+                    <span class="tag">Google Analytics</span>
+                    <span class="tag">CMS</span>
+                </div>
+                <div class="project-competences">
+                    <span class="badge">C10</span>
+                    <span class="badge">C11</span>
+                    <span class="badge">C17</span>
+                </div>
+                <div class="project-footer">
+                    <a href="e5-form-15.html" class="project-link"><i class="fas fa-arrow-right"></i> Voir la fiche détaillée</a>
+                </div>
+            </article>
+        </div>
+
+        <!-- ─── Stage Evolution Nord ─── -->
+        <div class="section-label" data-aos="fade-up">
+            <span class="section-label-text"><i class="fas fa-building" style="margin-right:6px;"></i>Réalisations Professionnelles : Stage chez Evolution Nord (juin – juillet 2026)</span>
+        </div>
+
+        <div class="cards-gallery">
+            <article class="project-card" data-aos="fade-up" data-aos-duration="900">
+                <div class="project-card-header">
+                    <span class="project-number">PRO #1</span>
+                    <span class="project-location"><i class="fas fa-building" style="font-size:0.75rem;margin-right:4px;"></i>Evolution Nord</span>
+                </div>
+                <h3 class="project-card-title">Inventaire et standardisation du parc informatique</h3>
+                <p class="project-card-text">Inventaire du parc, cartographie réseau et standardisation des comptes pour sécuriser le matériel chez Evolution Nord. Script PowerShell de nettoyage des comptes non standard.</p>
+                <div class="project-tags">
+                    <span class="tag">PowerShell</span>
+                    <span class="tag">Inventaire</span>
+                    <span class="tag">AD</span>
+                    <span class="tag">Standardisation</span>
+                </div>
+                <div class="project-competences">
+                    <span class="badge">C1</span>
+                </div>
+                <div class="project-footer">
+                    <a href="e5-detail-5.html" class="project-link"><i class="fas fa-arrow-right"></i> Voir la fiche détaillée</a>
+                </div>
+            </article>
+
+            <article class="project-card" data-aos="fade-up" data-aos-duration="900" data-aos-delay="80">
+                <div class="project-card-header">
+                    <span class="project-number">PRO #2</span>
+                    <span class="project-location"><i class="fas fa-building" style="font-size:0.75rem;margin-right:4px;"></i>Evolution Nord</span>
+                </div>
+                <h3 class="project-card-title">Mise en conformité RGPD</h3>
+                <p class="project-card-text">Audit des données personnelles et construction d'un plan d'archivage conforme au RGPD pour le parc Evolution Nord.</p>
+                <div class="project-tags">
+                    <span class="tag">RGPD</span>
+                    <span class="tag">Archivage</span>
+                    <span class="tag">Protection</span>
+                </div>
+                <div class="project-competences">
+                    <span class="badge">C2</span>
+                    <span class="badge">C5</span>
+                </div>
+                <div class="project-footer">
+                    <a href="e5-detail-6.html" class="project-link"><i class="fas fa-arrow-right"></i> Voir la fiche détaillée</a>
+                </div>
+            </article>
+
+            <article class="project-card" data-aos="fade-up" data-aos-duration="900" data-aos-delay="160">
+                <div class="project-card-header">
+                    <span class="project-number">PRO #3</span>
+                    <span class="project-location"><i class="fas fa-building" style="font-size:0.75rem;margin-right:4px;"></i>Evolution Nord</span>
+                </div>
+                <h3 class="project-card-title">Gestion des droits et habilitations</h3>
+                <p class="project-card-text">Renforcement du principe du moindre privilège avec des groupes AD, révision des comptes et audit des habilitations.</p>
+                <div class="project-tags">
+                    <span class="tag">Active Directory</span>
+                    <span class="tag">Habilitations</span>
+                    <span class="tag">Sécurité</span>
+                </div>
+                <div class="project-competences">
+                    <span class="badge">C3</span>
+                </div>
+                <div class="project-footer">
+                    <a href="e5-detail-7.html" class="project-link"><i class="fas fa-arrow-right"></i> Voir la fiche détaillée</a>
+                </div>
+            </article>
+
+            <article class="project-card" data-aos="fade-up" data-aos-duration="900" data-aos-delay="240">
+                <div class="project-card-header">
+                    <span class="project-number">PRO #4</span>
+                    <span class="project-location"><i class="fas fa-building" style="font-size:0.75rem;margin-right:4px;"></i>Evolution Nord</span>
+                </div>
+                <h3 class="project-card-title">PCA / PRA et continuité de service</h3>
+                <p class="project-card-text">Mise en place d'un plan de continuité et de reprise avec virtualisation des services critiques pour Evolution Nord.</p>
+                <div class="project-tags">
+                    <span class="tag">PCA</span>
+                    <span class="tag">PRA</span>
+                    <span class="tag">Virtualisation</span>
+                </div>
+                <div class="project-competences">
+                    <span class="badge">C4</span>
+                </div>
+                <div class="project-footer">
+                    <a href="e5-detail-8.html" class="project-link"><i class="fas fa-arrow-right"></i> Voir la fiche détaillée</a>
+                </div>
+            </article>
+
+            <article class="project-card" data-aos="fade-up" data-aos-duration="900" data-aos-delay="320">
+                <div class="project-card-header">
+                    <span class="project-number">PRO #5</span>
+                    <span class="project-location"><i class="fas fa-building" style="font-size:0.75rem;margin-right:4px;"></i>Evolution Nord</span>
+                </div>
+                <h3 class="project-card-title">Charte d'utilisation du parc informatique</h3>
+                <p class="project-card-text">Rédaction d'une charte informatique pour encadrer l'utilisation des équipements et sensibiliser les utilisateurs aux bonnes pratiques de sécurité.</p>
+                <div class="project-tags">
+                    <span class="tag">Charte</span>
+                    <span class="tag">Politique</span>
+                    <span class="tag">Sécurité</span>
+                </div>
+                <div class="project-competences">
+                    <span class="badge">C6</span>
+                </div>
+                <div class="project-footer">
+                    <a href="e5-detail-9.html" class="project-link"><i class="fas fa-arrow-right"></i> Voir la fiche détaillée</a>
+                </div>
+            </article>
+        </div>
+
+        <!-- ─── Alternance ─── -->
+        <div class="section-label section-label--alternance" data-aos="fade-up">
+            <span class="section-label-text"><i class="fas fa-briefcase" style="margin-right:6px;"></i>Réalisations en Alternance : Sitetracker / Salesforce (août 2025 – août 2026)</span>
+        </div>
+
+        <div class="cards-gallery">
+            <article class="project-card project-card--alternance" data-aos="fade-up" data-aos-duration="900">
+                <div class="project-card-header">
+                    <span class="project-number">ALT #1</span>
+                    <span class="project-location"><i class="fas fa-briefcase" style="font-size:0.75rem;margin-right:4px;"></i>Alternance</span>
+                </div>
+                <h3 class="project-card-title">Administration des habilitations sur Sitetracker</h3>
+                <p class="project-card-text">Audit des droits de 70+ utilisateurs, création de 15 profils Salesforce et mise en place d'une matrice des habilitations RGPD-compliant avec audit mensuel automatisé.</p>
+                <div class="project-tags">
+                    <span class="tag">Salesforce</span>
+                    <span class="tag">Sitetracker</span>
+                    <span class="tag">Habilitations</span>
+                    <span class="tag">RGPD</span>
+                </div>
+                <div class="project-competences">
+                    <span class="badge">C3</span>
+                </div>
+                <div class="project-footer">
+                    <a href="e5-detail-10.html" class="project-link"><i class="fas fa-arrow-right"></i> Voir la fiche détaillée</a>
+                </div>
+            </article>
+
+            <article class="project-card project-card--alternance" data-aos="fade-up" data-aos-duration="900" data-aos-delay="80">
+                <div class="project-card-header">
+                    <span class="project-number">ALT #2</span>
+                    <span class="project-location"><i class="fas fa-briefcase" style="font-size:0.75rem;margin-right:4px;"></i>Alternance</span>
+                </div>
+                <h3 class="project-card-title">Migration des données comptables (Excel vers Sitetracker)</h3>
+                <p class="project-card-text">Migration sécurisée de fichiers Excel critiques vers Sitetracker via scripts ETL, tests en sandbox et fenêtre de maintenance week-end. Zéro perte de données.</p>
+                <div class="project-tags">
+                    <span class="tag">Excel</span>
+                    <span class="tag">ETL</span>
+                    <span class="tag">Salesforce</span>
+                    <span class="tag">Migration</span>
+                </div>
+                <div class="project-competences">
+                    <span class="badge">C4</span>
+                    <span class="badge">C5</span>
+                    <span class="badge">C17</span>
+                </div>
+                <div class="project-footer">
+                    <a href="e5-detail-11.html" class="project-link"><i class="fas fa-arrow-right"></i> Voir la fiche détaillée</a>
+                </div>
+            </article>
+
+            <article class="project-card project-card--alternance" data-aos="fade-up" data-aos-duration="900" data-aos-delay="160">
+                <div class="project-card-header">
+                    <span class="project-number">ALT #3</span>
+                    <span class="project-location"><i class="fas fa-briefcase" style="font-size:0.75rem;margin-right:4px;"></i>Alternance</span>
+                </div>
+                <h3 class="project-card-title">Mise en place d'un système de ticketing</h3>
+                <p class="project-card-text">Création d'un objet personnalisé dans Sitetracker avec workflows de notification automatique et clôture obligatoire par compte rendu. Traçabilité totale des demandes.</p>
+                <div class="project-tags">
+                    <span class="tag">Sitetracker</span>
+                    <span class="tag">Workflows</span>
+                    <span class="tag">KPI</span>
+                </div>
+                <div class="project-competences">
+                    <span class="badge">C7</span>
+                </div>
+                <div class="project-footer">
+                    <a href="e5-detail-12.html" class="project-link"><i class="fas fa-arrow-right"></i> Voir la fiche détaillée</a>
+                </div>
+            </article>
+
+            <article class="project-card project-card--alternance" data-aos="fade-up" data-aos-duration="900" data-aos-delay="240">
+                <div class="project-card-header">
+                    <span class="project-number">ALT #4</span>
+                    <span class="project-location"><i class="fas fa-briefcase" style="font-size:0.75rem;margin-right:4px;"></i>Alternance</span>
+                </div>
+                <h3 class="project-card-title">Tests d'intégration et recette (2 cycles)</h3>
+                <p class="project-card-text">Rédaction de 15 scénarios de test, deux cycles de recette en sandbox et recette utilisateur avec les parties prenantes métier. Réduction des défauts en production.</p>
+                <div class="project-tags">
+                    <span class="tag">Salesforce Sandbox</span>
+                    <span class="tag">Recette</span>
+                    <span class="tag">Scénarios</span>
+                    <span class="tag">QA</span>
+                </div>
+                <div class="project-competences">
+                    <span class="badge">C16</span>
+                </div>
+                <div class="project-footer">
+                    <a href="e5-detail-13.html" class="project-link"><i class="fas fa-arrow-right"></i> Voir la fiche détaillée</a>
+                </div>
+            </article>
+
+            <article class="project-card project-card--alternance" data-aos="fade-up" data-aos-duration="900" data-aos-delay="320">
+                <div class="project-card-header">
+                    <span class="project-number">ALT #5</span>
+                    <span class="project-location"><i class="fas fa-briefcase" style="font-size:0.75rem;margin-right:4px;"></i>Alternance</span>
+                </div>
+                <h3 class="project-card-title">Formation et accompagnement des utilisateurs</h3>
+                <p class="project-card-text">Animation de 4 ateliers de 2h, rédaction d'un guide PDF de 30 pages et production de vidéos tutoriels. Taux de satisfaction élevé et adoption fluide de l'outil.</p>
+                <div class="project-tags">
+                    <span class="tag">Formation</span>
+                    <span class="tag">Documentation</span>
+                    <span class="tag">Support</span>
+                    <span class="tag">NPS</span>
+                </div>
+                <div class="project-competences">
+                    <span class="badge">C8</span>
+                    <span class="badge">C9</span>
+                    <span class="badge">C18</span>
+                </div>
+                <div class="project-footer">
+                    <a href="e5-detail-14.html" class="project-link"><i class="fas fa-arrow-right"></i> Voir la fiche détaillée</a>
+                </div>
+            </article>
+
+            <article class="project-card project-card--alternance" data-aos="fade-up" data-aos-duration="900" data-aos-delay="400">
+                <div class="project-card-header">
+                    <span class="project-number">ALT #6</span>
+                    <span class="project-location"><i class="fas fa-briefcase" style="font-size:0.75rem;margin-right:4px;"></i>Alternance</span>
+                </div>
+                <h3 class="project-card-title">Gestion de projet transverse (cheffe de projet)</h3>
+                <p class="project-card-text">Pilotage de l'intégration Sitetracker pour 4 équipes : recueil des besoins, WBS de 50+ tâches, Gantt, KPI et rapports CODIR bimensuels. Livraison dans les délais.</p>
+                <div class="project-tags">
+                    <span class="tag">Gantt</span>
+                    <span class="tag">Scrumban</span>
+                    <span class="tag">CODIR</span>
+                    <span class="tag">Teams</span>
+                </div>
+                <div class="project-competences">
+                    <span class="badge">C13</span>
+                    <span class="badge">C14</span>
+                    <span class="badge">C15</span>
+                </div>
+                <div class="project-footer">
+                    <a href="e5-detail-15.html" class="project-link"><i class="fas fa-arrow-right"></i> Voir la fiche détaillée</a>
+                </div>
+            </article>
+        </div>
+
+        <!-- ─── Projets Personnels ─── -->
+        <div class="section-label section-label--perso" data-aos="fade-up">
+            <span class="section-label-text"><i class="fas fa-rocket" style="margin-right:6px;"></i>Projets Personnels et Initiatives</span>
+        </div>
+
+        <div class="cards-gallery">
+            <article class="project-card project-card--perso" data-aos="fade-up" data-aos-duration="900">
+                <div class="project-card-header">
+                    <span class="project-number">PERSO #1</span>
+                    <span class="project-location"><i class="fas fa-home" style="font-size:0.75rem;margin-right:4px;"></i>Projet perso</span>
+                </div>
+                <h3 class="project-card-title">Homelab : laboratoire d'expérimentation à la maison</h3>
+                <p class="project-card-text">Montage d'un serveur avec Proxmox, VMware, pfSense, Windows Server, Linux et Docker. Sandbox pour tester virtualisation, réseau et sécurité librement, sans risque.</p>
+                <div class="project-tags">
+                    <span class="tag">Proxmox</span>
+                    <span class="tag">VMware</span>
+                    <span class="tag">pfSense</span>
+                    <span class="tag">Docker</span>
+                </div>
+                <div class="project-competences">
+                    <span class="badge">C19</span>
+                    <span class="badge">C22</span>
+                </div>
+                <div class="project-footer">
+                    <a href="e5-perso-1.html" class="project-link"><i class="fas fa-arrow-right"></i> Voir la fiche détaillée</a>
+                </div>
+            </article>
+
+            <article class="project-card project-card--perso" data-aos="fade-up" data-aos-duration="900" data-aos-delay="80">
+                <div class="project-card-header">
+                    <span class="project-number">PERSO #2</span>
+                    <span class="project-location"><i class="fas fa-home" style="font-size:0.75rem;margin-right:4px;"></i>Projet perso</span>
+                </div>
+                <h3 class="project-card-title">Application météo en JavaScript vanilla et API OpenWeatherMap</h3>
+                <p class="project-card-text">Appli web responsive : saisie d'une ville, affichage météo en temps réel (temp, humidité, vent, icône). Maîtrise de fetch API, async/await, JSON et manipulation DOM.</p>
+                <div class="project-tags">
+                    <span class="tag">HTML/CSS/JS</span>
+                    <span class="tag">API REST</span>
+                    <span class="tag">Fetch</span>
+                    <span class="tag">JSON</span>
+                </div>
+                <div class="project-competences">
+                    <span class="badge">C22</span>
+                </div>
+                <div class="project-footer">
+                    <a href="e5-perso-2.html" class="project-link"><i class="fas fa-arrow-right"></i> Voir la fiche détaillée</a>
+                </div>
+            </article>
+
+            <article class="project-card project-card--perso" data-aos="fade-up" data-aos-duration="900" data-aos-delay="160">
+                <div class="project-card-header">
+                    <span class="project-number">PERSO #3</span>
+                    <span class="project-location"><i class="fas fa-home" style="font-size:0.75rem;margin-right:4px;"></i>Projet perso</span>
+                </div>
+                <h3 class="project-card-title">Écosystème Notion : gestion centralisée de l'apprentissage</h3>
+                <p class="project-card-text">Bases de données relationnelles Notion (cours, projets, certifications, veille) toutes reliées entre elles. Dashboard personnel avec vues filtrées et suivi de progression.</p>
+                <div class="project-tags">
+                    <span class="tag">Notion</span>
+                    <span class="tag">BDD relationnelle</span>
+                    <span class="tag">Productivité</span>
+                    <span class="tag">Kanban</span>
+                </div>
+                <div class="project-competences">
+                    <span class="badge">C19</span>
+                </div>
+                <div class="project-footer">
+                    <a href="e5-perso-3.html" class="project-link"><i class="fas fa-arrow-right"></i> Voir la fiche détaillée</a>
+                </div>
+            </article>
+
+            <article class="project-card project-card--perso" data-aos="fade-up" data-aos-duration="900" data-aos-delay="240">
+                <div class="project-card-header">
+                    <span class="project-number">PERSO #4</span>
+                    <span class="project-location"><i class="fas fa-home" style="font-size:0.75rem;margin-right:4px;"></i>Projet perso</span>
+                </div>
+                <h3 class="project-card-title">Veille technologique sur la 5G : impacts et enjeux</h3>
+                <p class="project-card-text">Veille structurée sur la 5G : définition, rapport avec la SISR, analyses d'articles sourcés (Anses, ENISA, IDC, FAA), débouchés professionnels et portfolio dédié.</p>
+                <div class="project-tags">
+                    <span class="tag">5G</span>
+                    <span class="tag">Veille</span>
+                    <span class="tag">SISR</span>
+                    <span class="tag">Sources académiques</span>
+                </div>
+                <div class="project-competences">
+                    <span class="badge">C19</span>
+                    <span class="badge">C20</span>
+                </div>
+                <div class="project-footer">
+                    <a href="veille.html" class="project-link"><i class="fas fa-arrow-right"></i> Voir la veille technologique</a>
+                </div>
+            </article>
+
+            <article class="project-card project-card--perso" data-aos="fade-up" data-aos-duration="900" data-aos-delay="320">
+                <div class="project-card-header">
+                    <span class="project-number">PERSO #5</span>
+                    <span class="project-location"><i class="fas fa-home" style="font-size:0.75rem;margin-right:4px;"></i>Projet perso</span>
+                </div>
+                <h3 class="project-card-title">Identité professionnelle : LinkedIn, portfolio et e-réputation</h3>
+                <p class="project-card-text">Profil LinkedIn complet avec publications régulières, portfolio web (ce site), contrôle de l'e-réputation et email professionnel. Démarche proactive de visibilité recruteur.</p>
+                <div class="project-tags">
+                    <span class="tag">LinkedIn</span>
+                    <span class="tag">Portfolio</span>
+                    <span class="tag">GitHub Pages</span>
+                    <span class="tag">E-réputation</span>
+                </div>
+                <div class="project-competences">
+                    <span class="badge">C21</span>
+                </div>
+                <div class="project-footer">
+                    <a href="e5-perso-4.html" class="project-link"><i class="fas fa-arrow-right"></i> Voir la fiche détaillée</a>
+                </div>
+            </article>
+
+            <article class="project-card project-card--perso" data-aos="fade-up" data-aos-duration="900" data-aos-delay="400">
+                <div class="project-card-header">
+                    <span class="project-number">PERSO #6</span>
+                    <span class="project-location"><i class="fas fa-home" style="font-size:0.75rem;margin-right:4px;"></i>Projet perso</span>
+                </div>
+                <h3 class="project-card-title">Certification Cisco Network Basics (en cours)</h3>
+                <p class="project-card-text">Suivi du programme Cisco Networking Academy : cours théoriques, QCM et labs virtuels pour valider officiellement les compétences réseau et préparer mon insertion professionnelle.</p>
+                <div class="project-tags">
+                    <span class="tag">Cisco</span>
+                    <span class="tag">Networking Academy</span>
+                    <span class="tag">Certification</span>
+                    <span class="tag">Labs virtuels</span>
+                </div>
+                <div class="project-competences">
+                    <span class="badge">C22</span>
+                </div>
+                <div class="project-footer">
+                    <a href="e5-perso-5.html" class="project-link"><i class="fas fa-arrow-right"></i> Voir la fiche détaillée</a>
+                </div>
+            </article>
+        </div>
+
     </div>
 
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
-    <script>
-        AOS.init({offset: 0});
-    </script>
+    <script>AOS.init({ offset: 0 });</script>
     <script src="script.js"></script>
 </body>
 </html>
