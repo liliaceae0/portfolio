@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TP DHCP Failover — Épreuve E5</title>
+    <title>TP DHCP Failover — Haute disponibilité du service DHCP</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
     <link rel="stylesheet" href="style.css">
@@ -18,7 +18,7 @@
         .breadcrumb-sep { opacity: 0.4; }
         .btn-back { display: inline-flex; align-items: center; gap: 0.5rem; color: rgba(255,255,255,0.75); text-decoration: none; font-size: 0.92rem; margin-bottom: 1.8rem; transition: color 0.2s ease, gap 0.2s ease; }
         .btn-back:hover { color: #2dd4bf; gap: 0.75rem; }
-        .detail-hero { padding: 3.5rem 0 1.5rem; border-bottom: 1px solid rgba(255,255,255,0.08); }
+        .detail-hero { min-height: auto; padding: 3.5rem 0 1.5rem; border-bottom: 1px solid rgba(255,255,255,0.08); }
         .detail-hero-content { flex: 1; min-width: 280px; }
         .detail-hero-badges { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1rem; }
         .hero-badge { display: inline-flex; align-items: center; gap: 0.4rem; padding: 0.45rem 0.95rem; border-radius: 999px; font-size: 0.82rem; font-weight: 600; }
@@ -26,7 +26,7 @@
         .hero-badge-org { background: rgba(255,255,255,0.08); color: rgba(255,255,255,0.85); border: 1px solid rgba(255,255,255,0.12); }
         .detail-hero-title { font-size: clamp(1.8rem, 4vw, 2.8rem); font-weight: 700; margin: 0 0 1rem; line-height: 1.1; }
         .detail-hero-intro { color: rgba(226,232,240,0.82); line-height: 1.8; max-width: 760px; margin-bottom: 1.4rem; }
-        .detail-main { padding: 2.5rem 0 4rem; }
+        .detail-main { min-height: auto; padding: 2.5rem 0 4rem; }
         .detail-layout { display: grid; grid-template-columns: 2fr 1fr; gap: 2rem; align-items: start; }
         .detail-block { background: rgba(15,23,42,0.9); border: 1px solid rgba(255,255,255,0.08); border-radius: 18px; overflow: hidden; margin-bottom: 1.4rem; }
         .detail-block-header { display: flex; align-items: center; gap: 0.85rem; padding: 1.1rem 1.4rem; background: rgba(45,212,191,0.07); border-bottom: 1px solid rgba(255,255,255,0.08); }
@@ -52,7 +52,7 @@
         .sidebar-info-row { display: flex; justify-content: space-between; gap: 0.75rem; }
         .sidebar-info-label { color: rgba(226,232,240,0.65); font-size: 0.8rem; }
         .sidebar-info-value { color: rgba(226,232,240,0.9); font-size: 0.92rem; text-align: right; }
-        .proj-navigation { padding: 2rem 0 4rem; }
+        .proj-navigation { min-height: auto; padding: 2rem 0 4rem; }
         .proj-nav-inner { display: flex; flex-wrap: wrap; gap: 1rem; justify-content: space-between; align-items: center; }
         .proj-nav-btn { display: block; width: 100%; max-width: 360px; padding: 1rem 1.2rem; background: rgba(15,23,42,0.92); border: 1px solid rgba(255,255,255,0.08); border-radius: 16px; color: #fff; text-decoration: none; transition: transform 0.2s ease, border-color 0.2s ease; }
         .proj-nav-btn:hover { border-color: #2dd4bf; transform: translateY(-2px); }
@@ -66,10 +66,10 @@
     <nav>
         <div class="nav-container">
             <div class="logo">Esra <span>Atia</span></div>
-            <div class="links"><a href="index.html">Accueil</a><a href="btssio.html">BTS SIO</a><a href="realisations.html">Réalisations</a><a href="profil.html">Profil</a></div>
+            <div class="links"><a href="index.html">Accueil</a><a href="btssio.html">BTS SIO</a><a href="realisations.html">Réalisations</a><a href="profil.html">Profil</a><a href="contact.html">Contact</a></div>
             <i class="fa-solid fa-bars hamburg" onclick="hamburg()"></i>
         </div>
-        <div class="dropdown"><div class="links"><a href="index.html">Accueil</a><a href="btssio.html">BTS SIO</a><a href="realisations.html">Réalisations</a><a href="profil.html">Profil</a><i class="fa-solid fa-xmark cancel" onclick="cancel()"></i></div></div>
+        <div class="dropdown"><div class="links"><a href="index.html">Accueil</a><a href="btssio.html">BTS SIO</a><a href="realisations.html">Réalisations</a><a href="profil.html">Profil</a><a href="contact.html">Contact</a><i class="fa-solid fa-xmark cancel" onclick="cancel()"></i></div></div>
     </nav>
     <main>
         <section class="detail-hero" data-aos="fade-down">
@@ -152,7 +152,7 @@
                         <div class="sidebar-card" data-aos="fade-left" data-aos-delay="200">
                             <h3 class="sidebar-card-title"><i class="fas fa-file-alt"></i> Documentation</h3>
                             <div class="productions-list">
-                                <a href="DHCP-failover.docx" class="production-thumb" target="_blank" rel="noopener" style="gap:.75rem;color:rgba(226,232,240,.82);text-decoration:none;padding:.85rem 1rem;min-height:auto;justify-content:flex-start;"><i class="fas fa-file-word" style="color:#c4b5fd;font-size:1.2rem;flex-shrink:0;"></i><span style="font-size:.88rem;">DHCP-failover.docx</span></a>
+                                <a href="DHCP%20failover.docx" class="production-thumb" target="_blank" rel="noopener" style="gap:.75rem;color:rgba(226,232,240,.82);text-decoration:none;padding:.85rem 1rem;min-height:auto;justify-content:flex-start;"><i class="fas fa-file-word" style="color:#c4b5fd;font-size:1.2rem;flex-shrink:0;"></i><span style="font-size:.88rem;">DHCP failover.docx</span></a>
                             </div>
                         </div>
                     </aside>

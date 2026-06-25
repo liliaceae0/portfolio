@@ -75,8 +75,9 @@
         .year-badge--1 { background: rgba(99,179,237,0.12); color: #90cdf4; border: 1px solid rgba(99,179,237,0.22); }
         .year-badge--2 { background: rgba(45,212,191,0.12); color: #81e6d9; border: 1px solid rgba(45,212,191,0.22); }
 
-        .jury-notice { display: flex; align-items: center; gap: 0.75rem; background: rgba(45,212,191,0.06); border: 1px solid rgba(45,212,191,0.18); border-radius: 14px; padding: 0.85rem 1.2rem; margin-bottom: 1.5rem; font-size: 0.85rem; color: rgba(167,243,208,0.9); }
-        .jury-notice i { color: #2dd4bf; flex-shrink: 0; }
+        .jury-notice { display: flex; align-items: flex-start; gap: 0.75rem; background: rgba(45,212,191,0.06); border: 1px solid rgba(45,212,191,0.18); border-radius: 14px; padding: 0.85rem 1.2rem; margin-bottom: 1.5rem; font-size: 0.85rem; color: rgba(167,243,208,0.9); line-height: 1.6; }
+        .jury-notice i { color: #2dd4bf; flex-shrink: 0; margin-top: 0.2rem; }
+        .jury-notice span { flex: 1; }
 
         @media (max-width: 960px) { .cards-gallery { grid-template-columns: 1fr; } }
         @media (max-width: 600px) { .presentation { padding: 1.75rem 1.25rem; } .section-label-text { font-size: 0.68rem; } }
@@ -116,16 +117,13 @@
     <div class="e5-container">
 
         <div class="presentation" data-aos="fade-up" data-aos-duration="1200">
-            <h1>Réalisations</h1>
+            <h1>Réalisations professionnelles</h1>
             <p>Cette page regroupe toutes mes réalisations dans le cadre de mon BTS SIO. Vous y trouverez mes travaux pratiques en formation, mes réalisations lors de mon stage et de mon alternance, ainsi que mes projets personnels. Chaque fiche détaille le contexte, les étapes réalisées et les compétences mobilisées.</p>
         </div>
 
         <div class="documents-section">
-            <a href="Tableau de synthèse Esra (1) (1).pdf" class="download-btn" data-aos="fade-right" data-aos-duration="1000">
+            <a href="Tableau de synthèse Esra (1).xlsx" class="download-btn" data-aos="fade-right" data-aos-duration="1000">
                 <i class="fas fa-download"></i> Tableau des compétences
-            </a>
-            <a href="BTSSIO.png" class="download-btn" data-aos="fade-left" data-aos-duration="1000">
-                <i class="fas fa-download"></i> Modalités d'épreuve
             </a>
         </div>
 
@@ -136,7 +134,7 @@
 
         <div class="jury-notice" data-aos="fade-up">
             <i class="fas fa-info-circle"></i>
-            Ces réalisations ont été effectuées lors de ma <strong>première année de BTS SIO SISR</strong> (2024-2025), dans le cadre des travaux pratiques réalisés à l'EFREI Villejuif.
+            <span>Ces réalisations ont été effectuées lors de ma <strong>première année de BTS SIO SISR</strong> (2024-2025), dans le cadre des travaux pratiques réalisés à l'EFREI Villejuif.</span>
         </div>
 
         <div class="cards-gallery">
@@ -355,7 +353,7 @@
 
         <div class="jury-notice" data-aos="fade-up">
             <i class="fas fa-info-circle"></i>
-            Ces réalisations ont été effectuées lors de ma <strong>deuxième année de BTS SIO SISR</strong> (sept. 2025 – juin 2026), dans le cadre des travaux pratiques et projets encadrés à l'EFREI Villejuif.
+            <span>Ces réalisations ont été effectuées lors de ma <strong>deuxième année de BTS SIO SISR</strong> (sept. 2025 – juin 2026), dans le cadre des travaux pratiques et projets encadrés à l'EFREI Villejuif.</span>
         </div>
 
         <div class="cards-gallery">
@@ -792,11 +790,11 @@
                     <span class="project-location"><i class="fas fa-briefcase" style="font-size:0.75rem;margin-right:4px;"></i>Alternance</span>
                 </div>
                 <h3 class="project-card-title">Gestion de projet transverse (cheffe de projet)</h3>
-                <p class="project-card-text">Pilotage de l'intégration Sitetracker pour 4 équipes : recueil des besoins, WBS de 50+ tâches, Gantt, KPI et rapports CODIR bimensuels. Livraison dans les délais.</p>
+                <p class="project-card-text">Pilotage de l'intégration Sitetracker pour 4 équipes : recueil des besoins, WBS de 50+ tâches, Gantt, KPI et comptes-rendus de réunion d'équipe bimensuels. Livraison dans les délais.</p>
                 <div class="project-tags">
                     <span class="tag">Gantt</span>
                     <span class="tag">Scrumban</span>
-                    <span class="tag">CODIR</span>
+                    <span class="tag">Réunion d'équipe</span>
                     <span class="tag">Teams</span>
                 </div>
                 <div class="project-competences">
@@ -882,7 +880,7 @@
 
             <article class="project-card project-card--perso" data-aos="fade-up" data-aos-duration="900" data-aos-delay="320">
                 <div class="project-card-header">
-                    <span class="project-number">PERSO #5</span>
+                    <span class="project-number">PERSO #4</span>
                     <span class="project-location"><i class="fas fa-home" style="font-size:0.75rem;margin-right:4px;"></i>Projet perso</span>
                 </div>
                 <h3 class="project-card-title">Identité professionnelle : LinkedIn, portfolio et e-réputation</h3>
@@ -903,7 +901,7 @@
 
             <article class="project-card project-card--perso" data-aos="fade-up" data-aos-duration="900" data-aos-delay="400">
                 <div class="project-card-header">
-                    <span class="project-number">PERSO #6</span>
+                    <span class="project-number">PERSO #5</span>
                     <span class="project-location"><i class="fas fa-home" style="font-size:0.75rem;margin-right:4px;"></i>Projet perso</span>
                 </div>
                 <h3 class="project-card-title">Certification Cisco Network Basics (en cours)</h3>
